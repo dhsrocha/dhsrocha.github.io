@@ -30,13 +30,13 @@
     display: flex;
     flex-flow: column;
 
-    max-width: 60%;
+    max-width: 50%;
     margin: 0 auto;
   }
 
   /* Classes */
 
-  .horizontal {
+  ul.horizontal {
     display: flex;
     justify-content: space-around;
 
@@ -46,7 +46,10 @@
     list-style: none;
   }
 
-  .horizontal > * {
+  ul.horizontal * {
+    display: flex;
+    flex-flow: column;
+
     padding: 0 1.5em;
   }
 
