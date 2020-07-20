@@ -1,11 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300);
 
-:root {
-  --color-primary: #212121;
-  --color-secondary: #e7e7e7;
-}
-
+/* Defaults */
 @media all {
+  :root {
+    --color-primary: #212121;
+    --color-secondary: #e7e7e7;
+  }
 
   * {
     color: var(--color-primary);
@@ -15,9 +15,10 @@
   body {
     background-color: var(--color-secondary);
   }
+}
 
-  /* Mix-in */
-
+/* Mix-ins */
+@media all {
   header, footer {
     text-align: center;
   }
@@ -33,8 +34,10 @@
     max-width: 50%;
     margin: 0 auto;
   }
+}
 
-  /* Classes */
+/* Classes */
+@media all {
 
   ul.horizontal {
     display: flex;
