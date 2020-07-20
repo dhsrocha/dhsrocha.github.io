@@ -1,9 +1,13 @@
-header {
-  display: flex;
-  align-items: center;
-  flex-flow: column nowrap;
-}
 
-header > * {
-  text-align: center;
+@media all {
+
+  header {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+  }
+
+  header > * {
+    text-align: center;
+  }
 }
