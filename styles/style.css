@@ -16,6 +16,10 @@
     background-color: var(--color-secondary);
   }
 
+  ul {
+    max-width: 60%;
+  }
+
   /* Mix-in */
 
   header, footer {
@@ -38,23 +42,17 @@
     display: flex;
     justify-content: space-around;
 
-    margin: 0 5em;
+    margin: 0 auto;
     padding: 0;
 
     list-style: none;
   }
-}
 
-/* Header */
-@media all {
-
-  header {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
+  .horizontal > * {
+    padding: 0 1.5em;
   }
 
-  header > ul {
-    width: 60%;
+  .no-content {
+    text-align: center;
   }
 }
