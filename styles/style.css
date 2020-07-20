@@ -16,23 +16,21 @@
     background-color: var(--color-secondary);
   }
 
-  ul {
-    max-width: 60%;
-  }
-
   /* Mix-in */
 
   header, footer {
     text-align: center;
   }
 
+  header ul, footer ul {
+    max-width: 60%;
+  }
+
   header, main, footer {
     display: flex;
     flex-flow: column;
 
-    width: 60%;
-    max-width: 40em;
-
+    max-width: 60%;
     margin: 0 auto;
   }
 
