@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="no-js" lang="en">
 
@@ -26,6 +26,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 
+  <!-- Third-party -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
   <!-- Project level -->
   <link rel="stylesheet" href="styles/style.css" />
 </head>
@@ -40,9 +43,9 @@
     </section>
     <nav>
       <ul class="horizontal">
-        <li><a href="/">About</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="notes.html">Notes</a></li>
+        <li><a href="/"><em data-feather="info"></em>About</a></li>
+        <li><a href="work.html"><em data-feather="activity"></em>Work</a></li>
+        <li><a href="notes.html"><em data-feather="edit"></em>Notes</a></li>
       </ul>
     </nav>
   </header>
@@ -85,13 +88,26 @@
       <span>© 2020 <a href="https://dhsrocha.github.io">Diego Rocha</a>. All rights reserved.</span>
     </p>
     <ul class="horizontal">
-      <li><a
-          href="https://wa.me/351910827561?text=I%27m+interested+to+talk+about+an+idea+I%27ve+come+with%2C+can+we%3F"><img
-            alt="WhatsApp icon" /></a></li>
-      <li><a href="mailto:dhsrocha.dev@gmail.com"><img alt="Mail icon" /></a></li>
-      <li><a href="https://www.linkedin.com/in/dhsrocha/"><img alt="LinkedIn icon" /></a></li>
+      <li>
+        <a href="https://wa.me/351910827561?text=I%27m+interested+to+talk+about+an+idea+I%27ve+come+with%2C+can+we%3F">
+          <em data-feather="phone"></em>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:dhsrocha.dev@gmail.com">
+          <em data-feather="mail"></em>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/dhsrocha/">
+          <em data-feather="linkedin"></em>
+        </a>
+      </li>
     </ul>
   </footer>
+
 </body>
+
+<script type="text/javascript" src="scripts/index.js"></script>
 
 </html>
