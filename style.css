@@ -1,13 +1,41 @@
 
 @media all {
 
-  header {
+  /* Mix-in */
+
+  header, main, footer {
     display: flex;
-    align-items: center;
-    flex-flow: column nowrap;
+    flex-flow: column;
+
+    width: 60%;
+    max-width: 40em;
+
+    margin: 0 auto;
   }
 
-  header > * {
-    text-align: center;
+  /* Classes */
+
+  .horizontal {
+    display: flex;
+    justify-content: space-around;
+
+    margin: 0 5em;
+    padding: 0;
+
+    list-style: none;
+  }
+}
+
+/* Header */
+@media all {
+
+  header {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+
+  header > ul {
+    width: 60%;
   }
 }
