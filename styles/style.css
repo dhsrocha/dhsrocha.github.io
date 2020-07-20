@@ -36,6 +36,13 @@
   }
 }
 
+/* Footer */
+@media all {
+  footer {
+    margin-bottom: 3em;
+  }
+}
+
 /* Classes */
 @media all {
 
