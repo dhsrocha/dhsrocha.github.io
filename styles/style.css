@@ -40,8 +40,30 @@
   }
 }
 
+/* Footer */
+@media all {
+
+  footer > * {
+    margin: 0 auto;
+  }
+
+  footer p {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+    margin: 1em auto;
+  }
+
+  footer p > * {
+    margin: .5em 0;
+  }
+}
+
 /* Classes */
 @media all {
+
+  /* Horizontal */
 
   ul.horizontal {
     display: flex;
@@ -49,6 +71,8 @@
 
     margin: 0 auto;
     padding: 0;
+
+    min-width: 80%;
 
     list-style: none;
   }
@@ -60,6 +84,12 @@
 
     padding: 0 10%;
   }
+
+  ul.horizontal * {
+    min-width: .5em;
+  }
+
+  /* No content */
 
   .no-content {
     text-align: center;
