@@ -15,7 +15,7 @@
   body {
     background-color: var(--color-secondary);
 
-    padding: 0 5% 10%;
+    padding: 0 2.5% 2.5%;
   }
 }
 
@@ -33,10 +33,15 @@
     display: flex;
     flex-flow: column;
 
-    max-width: 70%;
-    min-width: 27.5em;
+    max-width: 60%;
 
     margin: 0 auto;
+  }
+
+  @media all and (max-width: 35em) {
+    header, main, footer {
+      max-width: 90%;
+    }
   }
 }
 
