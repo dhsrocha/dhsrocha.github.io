@@ -15,7 +15,7 @@
   body {
     background-color: var(--color-secondary);
 
-    padding: 0 2.5% 2.5%;
+    padding: 2.5%;
   }
 }
 
@@ -63,7 +63,7 @@
     margin: 0 auto;
   }
 
-  footer p {
+  footer section {
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -71,15 +71,15 @@
     margin: 1em auto;
   }
 
-  footer p > * {
+  footer section > * {
     margin: .5em 0;
   }
 }
 
 /* Classes */
-@media all {
 
-  /* Horizontal */
+/* Horizontal */
+@media all {
 
   ul.horizontal {
     display: flex;
@@ -99,9 +99,6 @@
     align-items: center;
 
     padding: 0 10%;
-  }
-
-  ul.horizontal * {
     min-width: .5em;
   }
 
