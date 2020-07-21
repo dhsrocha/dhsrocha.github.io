@@ -1,7 +1,6 @@
 {
   "name": "Diego Rocha's portfolio.",
   "short_name": "dhsrocha",
-  "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
   "display": "standalone",
   "start_url": ".",
   "orientation": "portrait",
