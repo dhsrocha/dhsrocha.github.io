@@ -4,6 +4,7 @@
   "display": "standalone",
   "start_url": ".",
   "orientation": "portrait",
+  "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
   "icons": [
     {
       "src": "logo.svg",
