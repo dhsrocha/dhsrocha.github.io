@@ -13,4 +13,5 @@
     foreground: style.getPropertyValue("--color-primary-tint-3"),
     background: style.getPropertyValue("--color-secondary"),
   });
+  // :::
 })(navigator, QRious);
