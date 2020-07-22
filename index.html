@@ -91,34 +91,42 @@
 
   <footer>
     <section>
-      <em>
-        <span>© 2020 </span>
-        <a href="https://dhsrocha.github.io">Diego Rocha</a>
-      </em>
-      <sub>All rights reserved.</sub>
+      <section>
+        <em>
+          <span>© 2020 </span>
+          <a href="https://dhsrocha.github.io">Diego Rocha</a>
+        </em>
+        <sub>All rights reserved.</sub>
+      </section>
+      <ul class="horizontal">
+        <li>
+          <a aria-label="WhatsApp"
+            href="https://wa.me/351910827561?text=I%27m+interested+to+talk+about+an+idea+I%27ve+come+with%2C+can+we%3F">
+            <em class="fab fa-2x fa-whatsapp"></em>
+          </a>
+        </li>
+        <li>
+          <a aria-label="Email" href="mailto:dhsrocha.dev@gmail.com">
+            <em class="far fa-2x fa-envelope"></em>
+          </a>
+        </li>
+        <li>
+          <a aria-label="LinedIn" href="https://www.linkedin.com/in/dhsrocha">
+            <em class="fab fa-2x fa-linkedin-in"></em>
+          </a>
+        </li>
+      </ul>
     </section>
-    <ul class="horizontal">
-      <li>
-        <a aria-label="WhatsApp"
-          href="https://wa.me/351910827561?text=I%27m+interested+to+talk+about+an+idea+I%27ve+come+with%2C+can+we%3F">
-          <em class="fab fa-2x fa-whatsapp"></em>
-        </a>
-      </li>
-      <li>
-        <a aria-label="Email" href="mailto:dhsrocha.dev@gmail.com">
-          <em class="far fa-2x fa-envelope"></em>
-        </a>
-      </li>
-      <li>
-        <a aria-label="LinedIn" href="https://www.linkedin.com/in/dhsrocha">
-          <em class="fab fa-2x fa-linkedin-in"></em>
-        </a>
-      </li>
-    </ul>
+    <section>
+      <canvas id="qr"></canvas>
+    </section>
   </footer>
 
   <!-- Normalization -->
   <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+  <!-- QRCode -->
+  <script type="text/javascript" src="https://unpkg.com/qrious"></script>
 
   <!-- Project-level -->
   <script type="text/javascript" src="scripts/index.js"></script>

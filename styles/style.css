@@ -36,9 +36,6 @@
   header, footer {
     text-align: center;
   }
-  header ul, footer ul {
-    max-width: 60%;
-  }
   header, nav, main, footer {
     display: flex;
     flex-flow: column;
@@ -72,25 +69,39 @@
 }
 
 @media all {/* Footer */
-  footer > * {
-    margin: .5em 0;
-  }
-  footer section {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
+  footer {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 
-    margin: 1em auto;
+    padding: 1em 0;
   }
-  footer section * {
-    color: var(--color-primary-tint-2);
+  footer * {
+    padding: 0 .25em;
+  }
+  footer > :first-of-type {
+    width: 80%;
+  }
+  footer > section > section {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  footer > section > section > * {
+    margin: .25em 0;
   }
   footer em {
     color: var(--color-primary-tint-3);
   }
 }
 
-/* Classes */
+/* Ids / Classes */
+
+@media all {/* QR-Code */
+  #qr {
+    min-width: 4em;
+    min-height: 4em;
+  }
+}
 
 @media all {/* Horizontal */
   ul.horizontal {
