@@ -71,7 +71,6 @@
 @media all {/* Footer */
   footer {
     flex-flow: row nowrap;
-    justify-content: space-between;
     align-items: center;
 
     padding: 1em 0;
@@ -80,7 +79,7 @@
     padding: 0 .25em;
   }
   footer > :first-of-type {
-    width: 80%;
+    min-width: 50%;
   }
   footer > section > section {
     display: flex;
@@ -95,13 +94,6 @@
 }
 
 /* Ids / Classes */
-
-@media all {/* QR-Code */
-  #qr {
-    min-width: 4em;
-    min-height: 4em;
-  }
-}
 
 @media all {/* Horizontal */
   ul.horizontal {
