@@ -72,14 +72,8 @@
 }
 
 @media all {/* Footer */
-  footer section * {
-    color: var(--color-primary-tint-2);
-  }
-  footer em {
-    color: var(--color-primary-tint-3);
-  }
   footer > * {
-    margin: 0 auto;
+    margin: .5em 0;
   }
   footer section {
     display: flex;
@@ -88,8 +82,11 @@
 
     margin: 1em auto;
   }
-  footer section > * {
-    margin: .5em 0;
+  footer section * {
+    color: var(--color-primary-tint-2);
+  }
+  footer em {
+    color: var(--color-primary-tint-3);
   }
 }
 
