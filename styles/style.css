@@ -39,11 +39,13 @@
   header ul, footer ul {
     max-width: 60%;
   }
-  header, main, footer {
+  header, nav, main, footer {
     display: flex;
     flex-flow: column;
+    justify-content: center;
 
     max-width: 60%;
+    min-height: 6em;
 
     margin: 0 auto;
   }
