@@ -111,5 +111,10 @@
 
   .no-content {
     text-align: center;
+    margin: 3em 0;
+  }
+
+  .no-content::after {
+    content: "No content for now."
   }
 }
