@@ -25,7 +25,15 @@
   <link href="assets/logo.svg" color="#E7E7E7" rel="mask-icon" sizes="any" />
   <link href="assets/logo.svg" color="#E7E7E7" rel="apple-touch-icon" />
 
-  <!-- Project-level -->
+  <!-- Dependencies -->
+
+  <!-- https://www.digitalocean.com/community/tutorials/html-preload-prefetch -->
+  <link rel="preload" as="style" onload="this.rel = 'stylesheet'"
+    href='https://fonts.googleapis.com/css?family=Roboto:100,300&display=swap' />
+  <noscript>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto:400,600'>
+  </noscript>
+
   <link rel="stylesheet" href="styles/style.css" />
 </head>
 
