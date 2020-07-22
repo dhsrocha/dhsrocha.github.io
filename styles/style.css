@@ -17,6 +17,11 @@
 
     padding: 2.5%;
   }
+
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }
 
 /* Mix-ins */
