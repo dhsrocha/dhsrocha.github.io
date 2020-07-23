@@ -108,7 +108,7 @@
   }
   ul.horizontal a > * {
     display: flex;
-    flex-flow: column;
+    flex-flow: column wrap;
     align-items: center;
   }
 }
