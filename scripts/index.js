@@ -1,5 +1,5 @@
 "use strict";
-(function (navigator, QRious) {
+(function (window, document, navigator, QRious) {
   "use strict";
   // https://www.pwabuilder.com/serviceworker
   if ("serviceWorker" in navigator) {
@@ -14,4 +14,6 @@
     background: style.getPropertyValue("--color-secondary"),
   });
   // :::
-})(navigator, QRious);
+  document.getElementById("to-page-top").onclick= () => window.scrollTo(0, 0);
+  // :::
+})(window, document, navigator, QRious);

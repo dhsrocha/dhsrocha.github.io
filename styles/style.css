@@ -17,6 +17,9 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-secondary);
 
@@ -30,7 +33,6 @@
     text-decoration: none;
   }
 }
-
 @media all {/* Mix-ins */
   header, footer {
     text-align: center;
@@ -51,13 +53,11 @@
     }
   }
 }
-
 @media all {/* Nav */
   nav * {
     color: var(--color-primary-tint-2);
   }
 }
-
 @media all {/* Header */
   header section {
     padding: 1em;
@@ -66,7 +66,13 @@
     margin: .25em;
   }
 }
-
+@media all {/* Main */
+  main > section:last-child {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1em 2em 2em;
+  }
+}
 @media all {/* Footer */
   footer {
     flex-flow: row nowrap;
@@ -112,7 +118,6 @@
     align-items: center;
   }
 }
-
 @media all {/* No content */
   .no-content {
     text-align: center;
@@ -121,5 +126,21 @@
 
   .no-content::after {
     content: "No content for now."
+  }
+}
+@media all {/* To page top */
+  #to-page-top em {
+    color: var(--color-primary-tint-2);
+  }
+}
+@media all { /* No style */
+  button.no-style {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
   }
 }
