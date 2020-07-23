@@ -41,57 +41,59 @@
 <body>
 
   <header>
-    <a aria-label="About myself" href="/">
+    <section>
       <h1>Diego Rocha</h1>
-    </a>
-    <blockquote>
-      <em>a software engineer</em>
-    </blockquote>
+      <blockquote>
+        <em>a software engineer</em>
+      </blockquote>
+    </section>
+    <nav>
+      <ul class="horizontal">
+        <li><a aria-label="About" href="#about"><em class="far fa-2x fa-user"></em><span>About</span></a></li>
+        <li><a aria-label="Work" href="#work"><em class="fa fa-2x fa-cog"></em><span>Work</span></a></li>
+        <li><a aria-label="Notes" href="#notes"><em class="fa fa-2x fa-edit"></em><span>Notes</span></a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <ul class="horizontal">
-      <li>
-        <a aria-label="Work" href="work.html">
-          <em class="fa fa-2x fa-cog"></em>
-          <span>Work</span>
-        </a>
-      </li>
-      <li>
-        <a aria-label="Notes" href="notes.html">
-          <em class="fa fa-2x fa-edit"></em>
-          <span>Notes</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
   <main>
-    <article>
-      <section>
+    <section id="about" class="page">
+      <header>
         <h2>Who I am</h2>
-        <p>
-          I am a software engineer, living in the Portuguese city of Lisbon. An enthusiastic solver, weaving solutions
-          into code on every possibility that it comes the need.
-        </p>
-      </section>
-      <section>
-        <h2>What I do love to work with</h2>
-        <ul>
-          <li>To insight the need from an audience's within;</li>
-          <li>To build it into the gears that can bring easiness and ordinance to everything around us.</li>
-        </ul>
-      </section>
-      <section>
-        <h2>What makes me go beyond</h2>
-        <p>
-          A good design resists time, wherever it is weaved onto. With this insight, I'm able to develop the robust and
-          consistent parts in order to make any frequent change disposable.
-        </p>
-      </section>
-    </article>
+      </header>
+      <p>
+        I am a software engineer, living in the Portuguese city of Lisbon. An enthusiastic solver, weaving solutions
+        into code on every possibility that it comes the need.
+      </p>
+      <h3>What I do love to work with</h3>
+      <ul>
+        <li>To insight the need from an audience's within;</li>
+        <li>To build it into the gears that can bring easiness and ordinance to everything around us.</li>
+      </ul>
+      <h3>What makes me go beyond</h3>
+      <p>
+        A good design resists time, wherever it is weaved onto. With this insight, I'm able to develop the robust and
+        consistent parts in order to make any frequent change disposable.
+      </p>
+    </section>
+    <section id="work" class="page">
+      <header>
+        <h2>My work</h2>
+        <blockquote>
+          <em>a picture is worth a thousand words</em>
+        </blockquote>
+      </header>
+    </section>
+    <section id="notes" class="page">
+      <header>
+        <h2>Some notes</h2>
+        <blockquote>
+          <em>thoughts that we can talk about a little bit</em>
+        </blockquote>
+      </header>
+    </section>
     <section>
-      <h2>I would like to hear you</h2>
+      <h3>I would like to hear you</h3>
       <p>
         Reach me if you have an idea that you want to get it started. I would be pleased to help you with something.
       </p>

@@ -23,7 +23,7 @@
   body {
     background-color: var(--color-secondary);
 
-    padding: 2.5%;
+    padding: 0 2.5% 2.5% 2.5%;
   }
   p {
     text-align: justify;
@@ -34,21 +34,25 @@
   }
 }
 @media all {/* Mix-ins */
-  header, footer {
+  body > header,
+  body > footer {
     text-align: center;
   }
-  header, nav, main, footer {
+  body > header,
+  body > nav,
+  body > main {
     display: flex;
     flex-flow: column;
     justify-content: center;
 
     max-width: 60%;
-    min-height: 6em;
 
     margin: 0 auto;
   }
   @media all and (max-width: 50em) {
-    header, main, footer {
+    body > header,
+    body > main,
+    body > footer {
       max-width: 90%;
     }
   }
@@ -59,32 +63,61 @@
   }
 }
 @media all {/* Header */
-  header section {
-    padding: 1em;
+  body > header {
+    align-items: center;
+    min-height: 10em;
   }
-  header h1, header blockquote {
-    margin: .25em;
+  @media all and (min-width: 50em) {
+    body > header:first-of-type  {
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+    body > header > :first-child {
+      flex-grow: 2;
+    }
+    body > header > :last-child {
+      flex-grow: 5;
+    }
+  }
+  @media all and (max-width: 50em) {
+    body > header:first-of-type  {
+      flex-flow: column nowrap;
+      height: 15em;
+      justify-content: space-around;
+    }
+    body > header:first-of-type > * {
+      width: 100%;
+    }
   }
 }
 @media all {/* Main */
+  main > section:first-child {
+    padding-top: 1em;
+  }
   main > section:last-child {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin: 1em 2em 2em;
+  }
+  main header section {
+    padding: 1em;
+  }
+  main header h2, header blockquote {
+    margin: .25em;
   }
 }
 @media all {/* Footer */
   footer {
+    display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    justify-content: center;
 
+    margin: 0 auto;
     padding: 1em 0;
   }
   footer * {
     padding: 0 .25em;
-  }
-  footer > :first-of-type {
-    min-width: 50%;
   }
   footer > section > section {
     display: flex;
@@ -118,22 +151,15 @@
     align-items: center;
   }
 }
-@media all {/* No content */
-  .no-content {
-    text-align: center;
-    margin: 3em 0;
+@media all {/* Pagination */
+  .page, :target ~ .default {
+    display: none;
   }
-
-  .no-content::after {
-    content: "No content for now."
+  :target, .default {
+    display: block;
   }
 }
-@media all {/* To page top */
-  #to-page-top em {
-    color: var(--color-primary-tint-2);
-  }
-}
-@media all { /* No style */
+@media all {/* No style */
   button.no-style {
     background: none;
     color: inherit;
@@ -142,5 +168,10 @@
     font: inherit;
     cursor: pointer;
     outline: inherit;
+  }
+}
+@media all {/* To page top */
+  #to-page-top em {
+    color: var(--color-primary-tint-2);
   }
 }

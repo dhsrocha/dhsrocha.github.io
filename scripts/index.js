@@ -14,6 +14,6 @@
     background: style.getPropertyValue("--color-secondary"),
   });
   // :::
-  document.getElementById("to-page-top").onclick= () => window.scrollTo(0, 0);
+  document.getElementById("to-page-top").onclick = () => window.scrollTo(0, 0);
   // :::
 })(window, document, navigator, QRious);
