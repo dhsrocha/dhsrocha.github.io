@@ -13,7 +13,34 @@
     foreground: style.getPropertyValue("--color-primary-tint-3"),
     background: style.getPropertyValue("--color-secondary"),
   });
-  // :::
-  document.getElementById("to-page-top").onclick = () => window.scrollTo(0, 0);
+  // ::: Go to top button
+  document.querySelectorAll(["#notes", "#about", "#work"]).forEach((el) => {
+    // Final message
+    const msg = document.createElement("div");
+    const h3 = document.createElement("h3");
+    const p = document.createElement("p");
+
+    p.innerHTML =
+      "Reach me if you have an idea that you want to get it started." +
+      "I would be pleased to help you with something.";
+    h3.innerHTML = "I would like to hear you";
+
+    msg.appendChild(h3);
+    msg.appendChild(p);
+    el.appendChild(msg);
+
+    // Go back button
+    const goBack = document.createElement("div");
+    const btn = document.createElement("button");
+    const em = document.createElement("em");
+
+    btn.setAttribute("class", "no-style");
+    em.setAttribute("class", "far fa-2x fa-arrow-alt-circle-up");
+
+    btn.onclick = () => window.scrollTo(0, 0);
+    btn.appendChild(em);
+    goBack.appendChild(btn);
+    el.appendChild(goBack);
+  });
   // :::
 })(window, document, navigator, QRious);

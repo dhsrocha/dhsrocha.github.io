@@ -91,19 +91,10 @@
   }
 }
 @media all {/* Main */
-  main > section:first-child {
-    padding-top: 1em;
-  }
-  main > section:last-child {
+  main > section > :last-child {
     display: flex;
     justify-content: center;
-    margin: 1em 2em 2em;
-  }
-  main header section {
-    padding: 1em;
-  }
-  main header h2, header blockquote {
-    margin: .25em;
+    padding: 1em 0;
   }
 }
 @media all {/* Footer */
