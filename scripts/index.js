@@ -21,7 +21,7 @@
     const p = document.createElement("p");
 
     p.innerHTML =
-      "Reach me if you have an idea that you want to get it started." +
+      "Reach me if you have an idea that you want to get it started. " +
       "I would be pleased to help you with something.";
     h3.innerHTML = "I would like to hear you";
 
