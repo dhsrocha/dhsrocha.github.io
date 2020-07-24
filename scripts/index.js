@@ -30,14 +30,22 @@
     el.appendChild(msg);
 
     // Go back button
-    const goBack = document.createElement("div");
-    const btn = document.createElement("button");
-    const em = document.createElement("em");
+    const label = "Back to top";
 
-    btn.setAttribute("class", "no-style");
+    const btn = document.createElement("button");
+    btn.onclick = () => window.scrollTo(0, 0);
+    btn.setAttribute("class", "clear");
+    btn.setAttribute("aria-label", label);
+
+    const em = document.createElement("em");
     em.setAttribute("class", "far fa-2x fa-arrow-alt-circle-up");
 
-    btn.onclick = () => window.scrollTo(0, 0);
+    const span = document.createElement("span");
+    span.innerHTML = label;
+    span.setAttribute("class", "undisplayed");
+
+    const goBack = document.createElement("div");
+    em.appendChild(span);
     btn.appendChild(em);
     goBack.appendChild(btn);
     el.appendChild(goBack);
