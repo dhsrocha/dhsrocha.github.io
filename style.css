@@ -32,6 +32,9 @@
   a {
     text-decoration: none;
   }
+  :focus {
+    outline-color: var(--color-primary-tint-3);
+  }
 }
 @media all {/* Mix-ins */
   body > header,
