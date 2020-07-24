@@ -71,7 +71,7 @@
     min-height: 10em;
   }
   @media all and (min-width: 50em) {
-    body > header:first-of-type  {
+    body > header  {
       flex-flow: row wrap;
       justify-content: space-between;
     }
@@ -83,12 +83,12 @@
     }
   }
   @media all and (max-width: 50em) {
-    body > header:first-of-type  {
+    body > header {
       flex-flow: column nowrap;
-      height: 15em;
       justify-content: space-around;
+      height: 12em;
     }
-    body > header:first-of-type > * {
+    body > header > :last-child {
       width: 100%;
     }
   }
