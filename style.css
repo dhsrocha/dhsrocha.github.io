@@ -101,21 +101,24 @@
   footer {
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
 
     margin: 0 auto;
     padding: 1em 0;
   }
-  footer * {
-    padding: 0 .25em;
+  footer > * {
+    margin: 0 .75em;
+  }
+  footer section {
+    display: flex;
+    justify-content: space-between;
+  }
+  footer section:first-child  {
+    flex-flow: column;
   }
   footer > section > section {
-    display: flex;
-    flex-flow: column nowrap;
-  }
-  footer > section > section > * {
-    margin: .25em 0;
+    height: 2em;
   }
   footer em {
     color: var(--color-primary-tint-3);
@@ -129,8 +132,8 @@
     display: flex;
     justify-content: space-around;
 
-    margin: 0 auto;
     padding: 0;
+    margin: 0;
 
     min-width: 80%;
 
@@ -140,6 +143,12 @@
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+  }
+}
+@media all {/* Squared */
+  section.squared canvas {
+    max-width: 5em;
+    max-height: 5em;
   }
 }
 @media all {/* Pagination */
