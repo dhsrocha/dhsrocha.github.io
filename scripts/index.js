@@ -37,6 +37,7 @@
     btn.onclick = () => window.scrollTo(0, 0);
     btn.setAttribute("class", "clear");
     btn.setAttribute("aria-label", backToTopLabel);
+    btn.setAttribute("title", backToTopLabel);
 
     const em = document.createElement("em");
     em.setAttribute("class", "far fa-2x fa-arrow-alt-circle-up");
