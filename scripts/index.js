@@ -93,8 +93,8 @@
 
     // ::: Change "Go to top" button's visibility
     sec.style = "display: block; visibility: hidden";
-    header.offsetHeight + footer.offsetHeight + sec.offsetHeight <
-      screen.height && (toTop.style = "display: none");
+    const height = header.offsetHeight + footer.offsetHeight + sec.offsetHeight;
+    if (height < screen.height) toTop.style = "display: none";
     sec.style = "";
   });
 })(window, document, navigator, QRious);
