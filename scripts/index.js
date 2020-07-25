@@ -1,18 +1,21 @@
 "use strict";
 (function (window, document, navigator, QRious) {
   "use strict";
-  // https://www.pwabuilder.com/serviceworker
+  // ::: Constants
+  const backToTopLabel = "Back to top";
+  // ::: Elements
+  const style = getComputedStyle(document.documentElement);
+  // ::: Register service worker: https://www.pwabuilder.com/serviceworker
   "serviceWorker" in navigator &&
     navigator.serviceWorker.register("./scripts/sw.js");
-  // :::
-  const style = getComputedStyle(document.documentElement);
+  // ::: Instantiate QR code component
   new QRious({
     element: document.getElementById("qr"),
     value: "https://dhsrocha.github.io",
-    foreground: style.getPropertyValue("--color-primary-tint-3"),
-    background: style.getPropertyValue("--color-secondary"),
+    foreground: style.getPropertyValue("--color-primary-tint-3") || "#000",
+    background: style.getPropertyValue("--color-secondary") || "#FFF",
   });
-  // ::: Go to top button
+  // ::: "Back to top" button
   document.querySelectorAll(["#notes", "#about", "#work"]).forEach((el) => {
     // Final message
     const msg = document.createElement("div");
@@ -28,19 +31,16 @@
     msg.appendChild(p);
     el.appendChild(msg);
 
-    // Go to top button
-    const label = "Back to top";
-
     const btn = document.createElement("button");
     btn.onclick = () => window.scrollTo(0, 0);
     btn.setAttribute("class", "clear");
-    btn.setAttribute("aria-label", label);
+    btn.setAttribute("aria-label", backToTopLabel);
 
     const em = document.createElement("em");
     em.setAttribute("class", "far fa-2x fa-arrow-alt-circle-up");
 
     const span = document.createElement("span");
-    span.innerHTML = label;
+    span.innerHTML = backToTopLabel;
     span.setAttribute("class", "undisplayed");
 
     const toTop = document.createElement("div");
