@@ -42,24 +42,23 @@
 
   <header>
     <section>
-      <a aria-label="Card" href="#">
-        <h1>Diego Rocha</h1>
-        <blockquote>
-          <em>a software engineer</em>
-        </blockquote>
-      </a>
+      <h1>Diego Rocha</h1>
+      <blockquote>
+        <em>a software engineer</em>
+      </blockquote>
     </section>
     <nav>
       <ul class="horizontal">
-        <li><a aria-label="About" href="#about"><em class="far fa-2x fa-user"></em><span>About</span></a></li>
-        <li><a aria-label="Work" href="#work"><em class="fa fa-2x fa-cog"></em><span>Work</span></a></li>
-        <li><a aria-label="Notes" href="#notes"><em class="fa fa-2x fa-edit"></em><span>Notes</span></a></li>
+        <li><label class="page" for="nav-tab__about"><em class="far fa-2x fa-user"></em><span>About</span></label></li>
+        <li><label class="page" for="nav-tab__work"><em class="fa fa-2x fa-cog"></em><span>Work</span></label></li>
+        <li><label class="page" for="nav-tab__notes"><em class="fa fa-2x fa-edit"></em><span>Notes</span></label></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="about" class="page">
+    <input class="page" type="radio" name="nav-tabs" id="nav-tab__about" checked="checked" />
+    <section id="about">
       <header>
         <h2>Who I am</h2>
       </header>
@@ -77,7 +76,8 @@
         consistent parts in order to make any frequent change disposable.
       </p>
     </section>
-    <section id="work" class="page">
+    <input class="page" type="radio" name="nav-tabs" id="nav-tab__work" />
+    <section id="work">
       <header>
         <h2>My work</h2>
         <blockquote>
@@ -85,7 +85,8 @@
         </blockquote>
       </header>
     </section>
-    <section id="notes" class="page">
+    <input class="page" type="radio" name="nav-tabs" id="nav-tab__notes" />
+    <section id="notes">
       <header>
         <h2>Some notes</h2>
         <blockquote>

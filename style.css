@@ -141,7 +141,7 @@
 
     list-style: none;
   }
-  ul.horizontal a > * {
+  ul.horizontal label > * {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -154,11 +154,15 @@
   }
 }
 @media all {/* Pagination */
-  .page, :target ~ .default {
+  input.page[type="radio"],
+  input.page[type="radio"] + section {
     display: none;
   }
-  :target, .default {
+  input.page[type="radio"]:checked + section {
     display: block;
+  }
+  label.page {
+    cursor: pointer;
   }
 }
 @media all {/* Neutral styles */
