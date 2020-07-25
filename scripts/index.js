@@ -3,8 +3,10 @@
   "use strict";
   // ::: Constants
   const backToTopLabel = "Back to top";
-  // ::: Elements
+  // ::: Global elements
   const style = getComputedStyle(document.documentElement);
+  const header = document.querySelector("header");
+  const footer = document.querySelector("footer");
   // ::: Register service worker: https://www.pwabuilder.com/serviceworker
   "serviceWorker" in navigator &&
     navigator.serviceWorker.register("./scripts/sw.js");
@@ -16,7 +18,7 @@
     background: style.getPropertyValue("--color-secondary") || "#FFF",
   });
   // ::: "Back to top" button
-  document.querySelectorAll(["#notes", "#about", "#work"]).forEach((el) => {
+  document.querySelectorAll(["#notes", "#about", "#work"]).forEach((sec) => {
     // Final message
     const msg = document.createElement("div");
     const h3 = document.createElement("h3");
@@ -29,7 +31,7 @@
 
     msg.appendChild(h3);
     msg.appendChild(p);
-    el.appendChild(msg);
+    sec.appendChild(msg);
 
     const btn = document.createElement("button");
     btn.onclick = () => window.scrollTo(0, 0);
@@ -44,11 +46,16 @@
     span.setAttribute("class", "undisplayed");
 
     const toTop = document.createElement("div");
-    toTop.style = "display:flex; justify-content:center; height: 6em;";
+    toTop.style = "display: flex; justify-content: center; height: 6em;";
     em.appendChild(span);
     btn.appendChild(em);
     toTop.appendChild(btn);
-    el.appendChild(toTop);
+    sec.appendChild(toTop);
+
+    // ::: Change "Go to top" button's visibility
+    sec.style = "display: block; visibility: hidden";
+    header.offsetHeight + footer.offsetHeight + sec.offsetHeight <
+      screen.height && (toTop.style = "display: none");
+    sec.style = "";
   });
-  // :::
 })(window, document, navigator, QRious);
