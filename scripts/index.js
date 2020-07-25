@@ -21,39 +21,37 @@
     background: style.getPropertyValue("--color-secondary") || "#FFF",
   });
 
-  // ::: Articles
-  const articles = document.createElement("section");
-  notes.appendChild(articles);
   const url =
     "https://api.github.com/repos/dhsrocha/dhsrocha.github.io/issues?" +
     "state=closed&labels=blog-post&assignee=dhsrocha&page=1&per_page=1";
-  fetch(url)
-    .then((r) => r.json())
-    .then((d) => {
-      d.forEach((post) => {
-        const h3 = document.createElement("h3");
-        h3.innerHTML = post.title;
+  const res = await fetch(url);
+  const data = await res.json();
+  // ::: Articles
+  const articles = document.createElement("section");
+  notes.appendChild(articles);
+  data.forEach((post) => {
+    const h3 = document.createElement("h3");
+    h3.innerHTML = post.title;
 
-        const art = document.createElement("article");
-        art.appendChild(h3);
+    const art = document.createElement("article");
+    art.appendChild(h3);
 
-        const p = document.createElement("p");
-        p.innerHTML = post.body;
-        art.appendChild(p);
+    const p = document.createElement("p");
+    p.innerHTML = post.body;
+    art.appendChild(p);
 
-        articles.appendChild(art);
-        // ::: Comment box
-        const script = document.createElement("script");
-        script.src = "https://utteranc.es/client.js";
-        script.setAttribute("repo", "dhsrocha/dhsrocha.github.io");
-        script.setAttribute("issue-number", post.number);
-        script.setAttribute("label", "blog-post");
-        script.setAttribute("theme", "preferred-color-scheme");
-        script.setAttribute("crossorigin", "anonymous");
-        script.setAttribute("async", "async");
-        art.appendChild(script);
-      });
-    });
+    articles.appendChild(art);
+    // ::: Comment box
+    const script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", "dhsrocha/dhsrocha.github.io");
+    script.setAttribute("issue-number", post.number);
+    script.setAttribute("label", "blog-post");
+    script.setAttribute("theme", "preferred-color-scheme");
+    script.setAttribute("crossorigin", "anonymous");
+    script.setAttribute("async", "async");
+    art.appendChild(script);
+  });
 
   // ::: "Back to top" button
   document.querySelectorAll(["#notes", "#about", "#work"]).forEach((sec) => {
