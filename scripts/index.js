@@ -28,7 +28,7 @@
     msg.appendChild(p);
     el.appendChild(msg);
 
-    // Go back button
+    // Go to top button
     const label = "Back to top";
 
     const btn = document.createElement("button");
@@ -43,11 +43,12 @@
     span.innerHTML = label;
     span.setAttribute("class", "undisplayed");
 
-    const goBack = document.createElement("div");
+    const toTop = document.createElement("div");
+    toTop.style = "display:flex; justify-content:center; min-height: 3em";
     em.appendChild(span);
     btn.appendChild(em);
-    goBack.appendChild(btn);
-    el.appendChild(goBack);
+    toTop.appendChild(btn);
+    el.appendChild(toTop);
   });
   // :::
 })(window, document, navigator, QRious);

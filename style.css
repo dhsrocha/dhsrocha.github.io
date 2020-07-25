@@ -93,13 +93,6 @@
     }
   }
 }
-@media all {/* Main */
-  main > section > :last-child {
-    display: flex;
-    justify-content: center;
-    padding: 1em 0;
-  }
-}
 @media all {/* Footer */
   footer {
     display: flex;
