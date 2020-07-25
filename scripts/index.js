@@ -44,7 +44,7 @@
     span.setAttribute("class", "undisplayed");
 
     const toTop = document.createElement("div");
-    toTop.style = "display:flex; justify-content:center; min-height: 3em";
+    toTop.style = "display:flex; justify-content:center; height: 6em;";
     em.appendChild(span);
     btn.appendChild(em);
     toTop.appendChild(btn);
