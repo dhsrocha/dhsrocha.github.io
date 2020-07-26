@@ -32,13 +32,13 @@
   articles.id = "articles";
   notes.appendChild(articles);
   data.forEach((post) => {
-    const id = "article-" + post.id;
+    const number = "article-" + post.number;
 
     const art = document.createElement("article");
     const h3 = document.createElement("h3");
     const p = document.createElement("p");
 
-    art.id = id;
+    art.id = number;
     h3.innerHTML = post.title;
     p.innerHTML = post.body;
 
@@ -60,7 +60,7 @@
     const em = document.createElement("em");
     em.setAttribute("class", "fas fa-2x fa-sort-up");
     em.setAttribute("title", "Back to article top");
-    em.onclick = () => (location.href = "#" + id);
+    em.onclick = () => (location.href = "#" + number);
 
     articles.appendChild(art);
     art.appendChild(h3);
