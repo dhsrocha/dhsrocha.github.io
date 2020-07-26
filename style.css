@@ -126,6 +126,11 @@
     color: var(--color-primary-tint-3);
   }
 }
+@media all {/* Article */
+  article {
+    padding: 1em 0 2em;
+  }
+}
 
 /* Ids / Classes */
 
