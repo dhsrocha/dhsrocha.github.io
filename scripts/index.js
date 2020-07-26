@@ -113,5 +113,8 @@
     // const height = header.offsetHeight + footer.offsetHeight + sec.offsetHeight;
     // if (height < screen.height) toTop.style = "display: none";
     // sec.style = "";
+
+    // ::: Display entire screen only after all script is run.
+    document.body.removeAttribute("class");
   });
 })(window, document, navigator, location, QRious);

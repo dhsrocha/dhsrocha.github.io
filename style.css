@@ -170,6 +170,11 @@
     cursor: pointer;
   }
 }
+@media all {/* Pre-load */
+  .pre-load * {
+    display: none;
+  }
+}
 @media all {/* Neutral styles */
   .clear {
     background: none;
