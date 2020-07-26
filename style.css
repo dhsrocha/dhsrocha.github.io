@@ -171,8 +171,9 @@
   }
 }
 @media all {/* Pre-load */
-  .pre-load * {
-    display: none;
+  .pre-load {
+    transition: 0.75s ease;
+    opacity: 0;
   }
 }
 @media all {/* Neutral styles */

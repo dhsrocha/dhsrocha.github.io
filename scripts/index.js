@@ -115,6 +115,6 @@
     // sec.style = "";
 
     // ::: Display entire screen only after all script is run.
-    document.body.removeAttribute("class");
+    document.querySelector(".pre-load").style.opacity = 1;
   });
 })(window, document, navigator, location, QRious);
