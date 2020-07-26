@@ -5,8 +5,8 @@
   const backToTopLabel = "Back to top";
   // ::: Global elements
   const style = getComputedStyle(document.documentElement);
-  const header = document.querySelector("header");
-  const footer = document.querySelector("footer");
+  // const header = document.querySelector("header");
+  // const footer = document.querySelector("footer");
   const notes = document.getElementById("notes");
 
   // ::: Register service worker: https://www.pwabuilder.com/serviceworker
@@ -90,9 +90,9 @@
     sec.appendChild(toTop);
 
     // ::: Change "Go to top" button's visibility
-    sec.style = "display: block; visibility: hidden";
-    const height = header.offsetHeight + footer.offsetHeight + sec.offsetHeight;
-    if (height < screen.height) toTop.style = "display: none";
-    sec.style = "";
+    // sec.style = "display: block; visibility: hidden";
+    // const height = header.offsetHeight + footer.offsetHeight + sec.offsetHeight;
+    // if (height < screen.height) toTop.style = "display: none";
+    // sec.style = "";
   });
 })(window, document, navigator, QRious);
