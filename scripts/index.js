@@ -7,7 +7,7 @@
   const style = getComputedStyle(document.documentElement);
   // const header = document.querySelector("header");
   // const footer = document.querySelector("footer");
-  const notes = document.getElementById("notes");
+  // const notes = document.getElementById("notes");
 
   // ::: Register service worker: https://www.pwabuilder.com/serviceworker
   "serviceWorker" in navigator &&
@@ -28,9 +28,6 @@
   const data = await res.json();
 
   // ::: Articles
-  const articles = document.createElement("section");
-  articles.id = "articles";
-  notes.appendChild(articles);
   data.forEach((post) => {
     const number = "article-" + post.number;
 
