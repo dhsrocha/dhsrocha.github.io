@@ -2,7 +2,7 @@
 (async function (window, document, navigator, location, QRious) {
   "use strict";
   // ::: Constants
-  const backToTopLabel = "Back to top";
+  const backToTopLabel = "Back to page top";
   // ::: Global elements
   const style = getComputedStyle(document.documentElement);
   const header = document.querySelector("header");
