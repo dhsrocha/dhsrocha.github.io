@@ -21,52 +21,59 @@
     background: style.getPropertyValue("--color-secondary") || "#FFF",
   });
 
-  const url =
-    "https://api.github.com/repos/dhsrocha/dhsrocha.github.io/issues?" +
-    "state=closed&labels=blog-post&assignee=dhsrocha&page=1&per_page=1";
-  const res = await fetch(url);
-  const data = await res.json();
+  // ::: Load posts and inject them in each article component
+  const loadPosts = async () => {
+    // TODO: Need larger range of posts
+    const url =
+      "https://api.github.com/repos/dhsrocha/dhsrocha.github.io/issues?" +
+      "state=closed&labels=blog-post&assignee=dhsrocha&page=1&per_page=1";
+    const res = await fetch(url);
+    const data = await res.json();
 
-  // ::: Articles
-  data.forEach((post) => {
-    const number = "article-" + post.number;
+    // TODO: Need some preloading
 
-    const art = document.createElement("article");
-    const h3 = document.createElement("h3");
-    const p = document.createElement("p");
+    data.forEach((post) => {
+      const number = "article-" + post.number;
 
-    art.id = number;
-    h3.innerHTML = post.title;
-    p.innerHTML = post.body;
+      const art = document.createElement("article");
+      const h3 = document.createElement("h3");
+      const p = document.createElement("p");
 
-    // ::: Comment box
-    const script = document.createElement("script");
-    script.src = "https://utteranc.es/client.js";
-    script.setAttribute("repo", "dhsrocha/dhsrocha.github.io");
-    script.setAttribute("issue-number", post.number);
-    script.setAttribute("label", "blog-post");
-    script.setAttribute("theme", "preferred-color-scheme");
-    script.setAttribute("crossorigin", "anonymous");
-    script.setAttribute("async", "async");
+      art.id = number;
+      h3.innerHTML = post.title;
+      p.innerHTML = post.body;
 
-    // "Back to post beginning" button
-    const div = document.createElement("div");
-    div.style =
-      "display: flex; justify-content: flex-end; cursor: pointer; padding: 1em 2em";
+      // ::: Comment box
+      const script = document.createElement("script");
+      script.src = "https://utteranc.es/client.js";
+      script.setAttribute("repo", "dhsrocha/dhsrocha.github.io");
+      script.setAttribute("issue-number", post.number);
+      script.setAttribute("label", "blog-post");
+      script.setAttribute("theme", "preferred-color-scheme");
+      script.setAttribute("crossorigin", "anonymous");
+      script.setAttribute("async", "async");
 
-    const em = document.createElement("em");
-    em.setAttribute("class", "fas fa-2x fa-sort-up");
-    em.setAttribute("title", "Back to article top");
-    em.onclick = () => (location.href = "#" + number);
+      // "Back to post beginning" button
+      const div = document.createElement("div");
+      div.style =
+        "display: flex; justify-content: flex-end; cursor: pointer; padding: 1em 2em";
 
-    articles.appendChild(art);
-    art.appendChild(h3);
-    art.appendChild(p);
-    art.appendChild(script);
-    art.appendChild(div);
-    div.appendChild(em);
-    // :::
-  });
+      const em = document.createElement("em");
+      em.setAttribute("class", "fas fa-2x fa-sort-up");
+      em.setAttribute("title", "Back to article top");
+      em.onclick = () => (location.href = "#" + number);
+
+      articles.appendChild(art);
+      art.appendChild(h3);
+      art.appendChild(p);
+      art.appendChild(script);
+      art.appendChild(div);
+      div.appendChild(em);
+    });
+  };
+  document
+    .getElementById("nav-tab__notes")
+    .addEventListener("change", loadPosts, { once: true });
 
   // ::: "Back to top" button
   document.querySelectorAll(["#notes", "#about", "#work"]).forEach((sec) => {
