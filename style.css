@@ -42,7 +42,7 @@
     outline-color: var(--color-primary-tint-3);
   }
 }
-@media all {/* Mix-ins */
+@media all {/* High-order components */
   body > header,
   body > footer {
     text-align: center;
