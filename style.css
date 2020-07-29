@@ -12,7 +12,7 @@
   }
   * {
     color: var(--color-primary-tint-1);
-    font-family: 'Roboto', 'Helvetica';
+    font-family: "Roboto Condensed", sans-serif;;
 
     user-select: none;
     -webkit-tap-highlight-color: transparent;
