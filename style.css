@@ -107,6 +107,12 @@
     }
   }
 }
+@media all {/* Main */
+  main header,
+  main p {
+    padding: 0 0 1em;
+  }
+}
 @media all {/* Footer */
   footer {
     display: flex;
@@ -142,7 +148,7 @@
 
 /* Ids / Classes */
 
-@media all {/* Horizontal */
+@media all {/* Horizontal menu */
   ul.horizontal {
     display: flex;
 
