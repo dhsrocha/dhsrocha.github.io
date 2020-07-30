@@ -59,7 +59,7 @@
         "display: flex; justify-content: flex-end; cursor: pointer; padding: 1em 2em";
 
       const em = document.createElement("em");
-      em.setAttribute("class", "far fa-arrow-alt-circle-up");
+      em.className = "far fa-arrow-alt-circle-up";
       em.setAttribute("title", "Back to article top");
       em.onclick = () => (location.href = "#" + number);
 
@@ -94,16 +94,16 @@
     // "Back to top" button
     const btn = document.createElement("button");
     btn.onclick = () => window.scrollTo(0, 0);
-    btn.setAttribute("class", "clear");
+    btn.className = "clear";
     btn.setAttribute("aria-label", backToTopLabel);
     btn.setAttribute("title", backToTopLabel);
 
     const em = document.createElement("em");
-    em.setAttribute("class", "far fa-2x fa-arrow-alt-circle-up");
+    em.className = "far fa-2x fa-arrow-alt-circle-up";
 
     const span = document.createElement("span");
     span.innerHTML = backToTopLabel;
-    span.setAttribute("class", "undisplayed");
+    span.className = "undisplayed";
 
     const toTop = document.createElement("div");
     toTop.style = "display: flex; justify-content: center; height: 6em;";
