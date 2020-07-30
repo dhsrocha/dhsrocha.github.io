@@ -185,6 +185,10 @@
   label.page {
     cursor: pointer;
   }
+  li.page.selected {
+    border-bottom: .2em solid var(--color-primary-tint-2);
+    border-radius: .3em;
+  }
 }
 @media all {/* Pre-load */
   .pre-load {

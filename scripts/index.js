@@ -8,6 +8,7 @@
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
   // const notes = document.getElementById("notes");
+  const navButtons = document.querySelectorAll("nav li");
 
   // ::: Register service worker: https://www.pwabuilder.com/serviceworker
   "serviceWorker" in navigator &&
@@ -19,6 +20,17 @@
     value: "https://dhsrocha.github.io",
     foreground: style.getPropertyValue("--color-primary-tint-3") || "#000",
     background: style.getPropertyValue("--color-secondary") || "#FFF",
+  });
+
+  // ::: Visual footprint for the last section accessed
+  const selected = "page selected";
+  const lbl = document.querySelector("input.page[type='radio']:checked").id;
+  navButtons.forEach((e) => {
+    e.firstElementChild.getAttribute("for") === lbl && (e.className = selected);
+    e.onclick = (ev) => {
+      navButtons.forEach((el) => (el.className = ""));
+      ev.path[2].className = selected;
+    };
   });
 
   // ::: Load posts and inject them in each article component
@@ -121,4 +133,5 @@
     // ::: Display entire screen only after all script is run.
     document.querySelector(".pre-load").style.opacity = 1;
   });
-})(window, document, navigator, location, QRious);
+})(window, document, navigator, location, QRious) //
+  .catch((err) => console.error(err.message));
