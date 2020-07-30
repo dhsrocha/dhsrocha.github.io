@@ -59,7 +59,7 @@
         "display: flex; justify-content: flex-end; cursor: pointer; padding: 1em 2em";
 
       const em = document.createElement("em");
-      em.setAttribute("class", "fas fa-2x fa-angle-up");
+      em.setAttribute("class", "far fa-arrow-alt-circle-up");
       em.setAttribute("title", "Back to article top");
       em.onclick = () => (location.href = "#" + number);
 

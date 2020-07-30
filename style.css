@@ -1,5 +1,7 @@
 @import url(https://unpkg.com/modern-css-reset);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/regular.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/brands.min.css);
 
 /* * { border: 1px solid red; } */
 
