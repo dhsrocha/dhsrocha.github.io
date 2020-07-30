@@ -44,6 +44,7 @@
 
     // TODO: Need some preloading
 
+    const articles = document.getElementById("articles");
     data.forEach((post) => {
       const number = "article-" + post.number;
 
