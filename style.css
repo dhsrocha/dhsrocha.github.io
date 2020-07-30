@@ -66,6 +66,19 @@
   nav * {
     color: var(--color-primary-tint-2);
   }
+  @media all and (max-width: 50em) {
+    nav > * {
+      justify-content: space-around;
+    }
+  }
+  @media all and (min-width: 50em) {
+    nav {
+      max-width: 60%;
+    }
+    nav > * {
+      justify-content: space-between;
+    }
+  }
 }
 @media all {/* Header */
   body > header {
@@ -88,7 +101,6 @@
     body > header {
       flex-flow: column nowrap;
       justify-content: space-around;
-      height: 12em;
     }
     body > header > :last-child {
       width: 100%;
@@ -133,7 +145,6 @@
 @media all {/* Horizontal */
   ul.horizontal {
     display: flex;
-    justify-content: space-around;
 
     padding: 0;
     margin: 0;
@@ -144,6 +155,9 @@
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+  }
+  ul.horizontal.dispersed {
+    justify-content: space-between;
   }
 }
 @media all {/* Squared */
