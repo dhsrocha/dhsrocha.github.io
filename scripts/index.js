@@ -77,10 +77,7 @@
       em.onclick = () => (location.href = "#" + number);
 
       articles.appendChild(art);
-      art.appendChild(h3);
-      art.appendChild(p);
-      art.appendChild(script);
-      art.appendChild(div);
+      [h3, p, script, div].forEach((e) => art.appendChild(e));
       div.appendChild(em);
     });
   };
