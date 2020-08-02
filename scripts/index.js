@@ -9,6 +9,9 @@
   const footer = document.querySelector("footer");
   // const notes = document.getElementById("notes");
   const navButtons = document.querySelectorAll("nav li");
+  const radios = Array.from(
+    document.querySelectorAll("input.page[type='radio']")
+  );
 
   // ::: Register service worker: https://www.pwabuilder.com/serviceworker
   "serviceWorker" in navigator &&
@@ -24,9 +27,10 @@
 
   // ::: Visual footprint for the last section accessed
   const selected = "page selected";
-  const lbl = document.querySelector("input.page[type='radio']:checked").id;
+  const checkedId = radios.filter((e) => e.checked == true)[0].id;
   navButtons.forEach((e) => {
-    e.firstElementChild.getAttribute("for") === lbl && (e.className = selected);
+    e.firstElementChild.getAttribute("for") === checkedId &&
+      (e.className = selected);
     e.onclick = (ev) => {
       navButtons.forEach((el) => (el.className = ""));
       ev.path[2].className = selected;
