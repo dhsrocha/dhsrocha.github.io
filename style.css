@@ -67,11 +67,7 @@
 @media all {/* Nav */
   nav * {
     color: var(--color-primary-tint-2);
-  }
-  @media all and (max-width: 50em) {
-    nav > * {
-      justify-content: space-around;
-    }
+    justify-content: space-around;
   }
   @media all and (min-width: 50em) {
     nav {
@@ -86,12 +82,11 @@
   body > header {
     align-items: center;
     min-height: 10em;
+
+    flex-flow: row wrap;
+    justify-content: space-between;
   }
   @media all and (min-width: 50em) {
-    body > header  {
-      flex-flow: row wrap;
-      justify-content: space-between;
-    }
     body > header > :first-child {
       flex-grow: 2;
     }
@@ -170,8 +165,8 @@
 }
 @media all {/* Squared */
   section.squared canvas {
-    max-width: 5em;
-    max-height: 5em;
+    max-width: 12.5vw;
+    max-height: 12.5vh;
   }
 }
 @media all {/* Pagination */
