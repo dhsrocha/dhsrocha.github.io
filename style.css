@@ -165,8 +165,8 @@
 }
 @media all {/* Squared */
   section.squared canvas {
-    max-width: 12.5vw;
-    max-height: 12.5vh;
+    min-width: 4em;
+    min-height: 4em;
   }
 }
 @media all {/* Pagination */
