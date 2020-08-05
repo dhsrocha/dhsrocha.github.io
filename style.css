@@ -87,12 +87,13 @@
 /* Nav */
 @media all {
   nav * {
-    color: var(--color-primary-tint-2);
     justify-content: space-around;
+
+    color: var(--color-primary-tint-2);
   }
   @media all and (min-width: 50em) {
     nav {
-      max-width: 60%;
+      max-width: 55%;
     }
     nav > * {
       justify-content: space-between;
