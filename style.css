@@ -164,9 +164,6 @@
   footer section:first-child {
     flex-flow: column;
   }
-  footer > section > section {
-    height: 2em;
-  }
   footer em {
     color: var(--color-primary-tint-3);
   }
