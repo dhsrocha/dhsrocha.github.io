@@ -8,6 +8,8 @@
 /* Colors */
 @media all {
   :root {
+    --color-primary-highlight: #000;
+
     --color-primary-tint-1: #212121;
     --color-primary-tint-2: #292929;
     --color-primary-tint-3: #535353;
@@ -18,6 +20,8 @@
   }
   @media (prefers-color-scheme: dark) {
     :root {
+      --color-primary-highlight: #FFF;
+
       --color-primary-tint-1: #d0d0d0;
       --color-primary-tint-2: #b9b9b9;
       --color-primary-tint-3: #a2a2a2;
@@ -207,9 +211,11 @@
   label.page {
     cursor: pointer;
   }
-  li.page.selected {
-    border-bottom: 0.2em solid var(--color-primary-tint-2);
-    border-radius: 0.3em;
+  li.page.selected * {
+    color: var(--color-primary-highlight);
+  }
+  li.page.selected span {
+    font-weight: 600;
   }
 }
 /* Pre-load */
