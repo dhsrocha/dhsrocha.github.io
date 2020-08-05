@@ -91,7 +91,7 @@
     body > header,
     body > main,
     body > footer {
-      max-width: 60%;
+      max-width: 55%;
     }
   }
 }
