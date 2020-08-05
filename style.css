@@ -76,14 +76,21 @@
   body > header,
   body > main,
   body > footer {
-    max-width: 54%;
+    max-width: 90%;
     margin: 0 auto;
   }
-  @media all and (max-width: 50em) {
+  @media all and (min-width: 30em) {
     body > header,
     body > main,
     body > footer {
-      max-width: 90%;
+      max-width: 75%;
+    }
+  }
+  @media all and (min-width: 60em) {
+    body > header,
+    body > main,
+    body > footer {
+      max-width: 60%;
     }
   }
 }
