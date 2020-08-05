@@ -5,14 +5,31 @@
 
 /* * { border: 1px solid red; } */
 
-/* Defaults */
+/* Colors */
 @media all {
   :root {
     --color-primary-tint-1: #212121;
     --color-primary-tint-2: #292929;
     --color-primary-tint-3: #535353;
-    --color-secondary: #e7e7e7;
+
+    --color-secondary-tint-1: #e7e7e7;
+    --color-secondary-tint-2: #d0d0d0;
+    --color-secondary-tint-3: #b9b9b9;
   }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-primary-tint-1: #d0d0d0;
+      --color-primary-tint-2: #b9b9b9;
+      --color-primary-tint-3: #a2a2a2;
+
+      --color-secondary-tint-1: #212121;
+      --color-secondary-tint-2: #292929;
+      --color-secondary-tint-3: #535353;
+    }
+  }
+}
+/* Defaults */
+@media all {
   * {
     color: var(--color-primary-tint-1);
     font-family: "Roboto Condensed", sans-serif;
@@ -25,7 +42,7 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary-tint-1);
 
     padding: 0 2.5% 2.5% 2.5%;
   }

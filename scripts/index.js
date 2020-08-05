@@ -17,12 +17,18 @@
   "serviceWorker" in navigator &&
     navigator.serviceWorker.register("./scripts/sw.js");
 
+  const styleOf = (value, fall) => style.getPropertyValue(value) || fall;
+
   // ::: Instantiate QR code component
-  new QRious({
+  const qr = new QRious({
     element: document.getElementById("qr"),
     value: "https://dhsrocha.github.io",
-    foreground: style.getPropertyValue("--color-primary-tint-3") || "#000",
-    background: style.getPropertyValue("--color-secondary") || "#FFF",
+    foreground: styleOf("--color-primary-tint-3", "#000"),
+    background: styleOf("--color-secondary-tint-1", "#FFF"),
+  });
+  window.matchMedia("(prefers-color-scheme: dark)").addListener(() => {
+    qr.foreground = styleOf("--color-primary-tint-3", "#000");
+    qr.background = styleOf("--color-secondary-tint-1", "#FFF");
   });
 
   // ::: Visual footprint for the last section accessed
