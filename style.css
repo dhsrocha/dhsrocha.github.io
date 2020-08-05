@@ -60,6 +60,11 @@
   :focus {
     outline-color: var(--color-primary-tint-3);
   }
+  @media (min-width: 50em) {
+    body {
+      font-size: 2.5vh;
+    }
+  }
 }
 /* High-order components */
 @media all {
