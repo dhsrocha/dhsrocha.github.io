@@ -44,7 +44,7 @@
   body {
     background-color: var(--color-secondary-tint-1);
 
-    padding: 0 2.5% 2.5% 2.5%;
+    padding: 2.5%;
   }
   p {
     text-align: justify;
@@ -59,6 +59,8 @@
   @media (min-width: 50em) {
     body {
       font-size: 2.5vh;
+
+      padding: 0;
     }
   }
 }
@@ -77,22 +79,9 @@
   body > header,
   body > main,
   body > footer {
-    max-width: 90%;
+    max-width: 70vw;
     margin: 0 auto;
-  }
-  @media all and (min-width: 30em) {
-    body > header,
-    body > main,
-    body > footer {
-      max-width: 75%;
-    }
-  }
-  @media all and (min-width: 60em) {
-    body > header,
-    body > main,
-    body > footer {
-      max-width: 55%;
-    }
+    padding: 0.375em 0;
   }
 }
 /* Nav */
@@ -200,8 +189,8 @@
 /* Squared */
 @media all {
   section.squared canvas {
-    min-width: 4em;
-    min-height: 4em;
+    max-height: 12vh;
+    max-width: 12vh;
   }
 }
 /* Pagination */
