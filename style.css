@@ -79,9 +79,16 @@
   body > header,
   body > main,
   body > footer {
-    max-width: 70vw;
+    max-width: 90%;
     margin: 0 auto;
     padding: 0.375em 0;
+  }
+  @media (min-width: 50em) {
+    body > header,
+    body > main,
+    body > footer {
+      max-width: 70vw;
+    }
   }
 }
 /* Nav */
