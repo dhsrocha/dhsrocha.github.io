@@ -11,24 +11,20 @@
     --color-primary-highlight: #000;
 
     --color-primary-tint-1: #212121;
-    --color-primary-tint-2: #292929;
-    --color-primary-tint-3: #535353;
+    --color-primary-tint-2: #535353;
 
     --color-secondary-tint-1: #e7e7e7;
-    --color-secondary-tint-2: #d0d0d0;
-    --color-secondary-tint-3: #b9b9b9;
+    --color-secondary-tint-2: #b9b9b9;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --color-primary-highlight: #FFF;
 
       --color-primary-tint-1: #d0d0d0;
-      --color-primary-tint-2: #b9b9b9;
-      --color-primary-tint-3: #a2a2a2;
+      --color-primary-tint-2: #a2a2a2;
 
       --color-secondary-tint-1: #212121;
-      --color-secondary-tint-2: #292929;
-      --color-secondary-tint-3: #535353;
+      --color-secondary-tint-2: #535353;
     }
   }
 }
@@ -58,7 +54,7 @@
     text-decoration: none;
   }
   :focus {
-    outline-color: var(--color-primary-tint-3);
+    outline-color: var(--color-primary-tint-2);
   }
   @media (min-width: 50em) {
     body {
@@ -170,7 +166,7 @@
     flex-flow: column;
   }
   footer em {
-    color: var(--color-primary-tint-3);
+    color: var(--color-primary-tint-2);
   }
 }
 /* Article */

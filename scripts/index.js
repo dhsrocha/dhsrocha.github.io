@@ -20,15 +20,16 @@
   const styleOf = (value, fall) => style.getPropertyValue(value) || fall;
 
   // ::: Instantiate QR code component
+  const [tint1, tint2] = ["--color-primary-tint-2", "--color-secondary-tint-1"];
   const qr = new QRious({
     element: document.getElementById("qr"),
     value: "https://dhsrocha.github.io",
-    foreground: styleOf("--color-primary-tint-3", "#000"),
-    background: styleOf("--color-secondary-tint-1", "#FFF"),
+    foreground: styleOf(tint1, "#000"),
+    background: styleOf(tint2, "#FFF"),
   });
   window.matchMedia("(prefers-color-scheme: dark)").addListener(() => {
-    qr.foreground = styleOf("--color-primary-tint-3", "#000");
-    qr.background = styleOf("--color-secondary-tint-1", "#FFF");
+    qr.foreground = styleOf(tint1, "#000");
+    qr.background = styleOf(tint2, "#FFF");
   });
 
   // ::: Visual footprint for the last section accessed
