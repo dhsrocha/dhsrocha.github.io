@@ -111,10 +111,11 @@
 @media all {
   body > header {
     align-items: center;
-    min-height: 10em;
 
     flex-flow: row wrap;
     justify-content: space-between;
+
+    transition: all 0.4s ease-in-out;
   }
   @media all and (min-width: 50em) {
     body > header > :first-child {
@@ -122,6 +123,14 @@
     }
     body > header > :last-child {
       flex-grow: 5;
+    }
+    body > header.sticky {
+      position: sticky;
+      top: 0;
+      overflow-y: hidden;
+
+      background: var(--color-secondary-tint-1);
+      border-bottom: 0.075em solid var(--color-primary-tint-1);
     }
   }
   @media all and (max-width: 50em) {

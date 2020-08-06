@@ -9,7 +9,7 @@
   const footer = document.querySelector("footer");
   // const notes = document.getElementById("notes");
   const navButtons = document.querySelectorAll("nav li");
-  const radioQuery ="input.page[type='radio']";
+  const radioQuery = "input.page[type='radio']";
   const radios = Array.from(document.querySelectorAll(radioQuery));
 
   // ::: Register service worker: https://www.pwabuilder.com/serviceworker
@@ -30,6 +30,12 @@
     qr.foreground = styleOf(tint1, "#000");
     qr.background = styleOf(tint2, "#FFF");
   });
+
+  // ::: Sticky header
+  document.onscroll = () =>
+    window.pageYOffset > 0
+      ? header.classList.add("sticky")
+      : header.classList.remove("sticky");
 
   // ::: Visual footprint for the last section accessed
   const selected = "page selected";
