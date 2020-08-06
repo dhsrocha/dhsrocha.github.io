@@ -87,7 +87,14 @@
     body > header,
     body > main,
     body > footer {
-      max-width: 70vw;
+      max-width: 70%;
+    }
+  }
+  @media (min-width: 70em) {
+    body > header,
+    body > main,
+    body > footer {
+      max-width: 55vw;
     }
   }
 }
