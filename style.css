@@ -162,6 +162,9 @@
   footer section:first-child {
     flex-flow: column;
   }
+  footer a {
+    display: inline-block;
+  }
   footer em {
     color: var(--color-primary-tint-2);
   }
