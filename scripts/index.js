@@ -32,10 +32,11 @@
   });
 
   // ::: Sticky header
-  document.onscroll = () =>
-    window.pageYOffset > 0
-      ? header.classList.add("sticky")
-      : header.classList.remove("sticky");
+  const stickyClass = "sticky";
+  document.onscroll = () => {
+    window.pageYOffset > 0 && header.classList.add(stickyClass);
+    window.pageYOffset < 10 && header.classList.remove(stickyClass);
+  };
 
   // ::: Visual footprint for the last section accessed
   const selected = "page selected";
