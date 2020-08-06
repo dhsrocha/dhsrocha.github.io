@@ -9,9 +9,8 @@
   const footer = document.querySelector("footer");
   // const notes = document.getElementById("notes");
   const navButtons = document.querySelectorAll("nav li");
-  const radios = Array.from(
-    document.querySelectorAll("input.page[type='radio']")
-  );
+  const radioQuery ="input.page[type='radio']";
+  const radios = Array.from(document.querySelectorAll(radioQuery));
 
   // ::: Register service worker: https://www.pwabuilder.com/serviceworker
   "serviceWorker" in navigator &&
