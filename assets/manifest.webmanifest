@@ -7,7 +7,7 @@
   "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
   "icons": [
     {
-      "src": "logo.svg",
+      "src": "logo.png",
       "sizes": "512x512"
     }
   ],
