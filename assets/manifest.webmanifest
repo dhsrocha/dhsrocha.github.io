@@ -1,16 +1,27 @@
 {
-  "name": "Diego Rocha's portfolio.",
   "short_name": "dhsrocha",
-  "display": "standalone",
-  "start_url": "/index.html",
+  "name": "Diego Rocha ::: a Software Engineer",
+  "display": "minimal-ui",
+  "start_url": "/",
+  "scope": "/",
   "orientation": "portrait",
   "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
   "icons": [
     {
       "src": "logo.png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#212121",
-  "background_color": "#E7E7E7"
+  "background_color": "#E7E7E7",
+  "shortcuts": [
+    {
+      "name": "Diego Rocha ::: a Software Engineer",
+      "short_name": "dhsrocha",
+      "description": "Diego Rocha's portfolio.",
+      "url": "/",
+      "icons": [{ "src": "/assets/logo.png", "sizes": "512x512" }]
+    }
+  ]
 }
