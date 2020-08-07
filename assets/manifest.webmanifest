@@ -1,6 +1,6 @@
 {
   "short_name": "dhsrocha",
-  "name": "Diego Rocha ::: a Software Engineer",
+  "name": "Diego Rocha's Portfolio",
   "display": "minimal-ui",
   "start_url": "/",
   "scope": "/",
@@ -17,9 +17,9 @@
   "background_color": "#E7E7E7",
   "shortcuts": [
     {
-      "name": "Diego Rocha ::: a Software Engineer",
+      "name": "Diego Rocha's Portfolio",
       "short_name": "dhsrocha",
-      "description": "Diego Rocha's portfolio.",
+      "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
       "url": "/",
       "icons": [{ "src": "/assets/logo.png", "sizes": "512x512" }]
     }
