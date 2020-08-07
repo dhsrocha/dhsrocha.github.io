@@ -105,7 +105,7 @@
 
     color: var(--color-primary-tint-2);
   }
-  @media all and (min-width: 50em) {
+  @media (min-width: 50em) {
     nav {
       max-width: 55%;
     }
@@ -124,7 +124,7 @@
 
     transition: all 0.4s ease-in-out;
   }
-  @media all and (min-width: 50em) {
+  @media (min-width: 50em) {
     body > header > :first-child {
       flex-grow: 2;
     }
@@ -140,7 +140,7 @@
       border-bottom: 0.075em solid var(--color-primary-tint-1);
     }
   }
-  @media all and (max-width: 50em) {
+  @media (max-width: 50em) {
     body > header {
       flex-flow: column nowrap;
       justify-content: space-around;
