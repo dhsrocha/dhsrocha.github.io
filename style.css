@@ -220,8 +220,14 @@
 /* Squared */
 @media all {
   section.squared canvas {
-    max-height: 12vh;
-    max-width: 12vh;
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 50em) {
+    section.squared {
+      min-width: 13.8vh;
+      min-height: 13.8vh;
+    }
   }
 }
 /* Pagination */

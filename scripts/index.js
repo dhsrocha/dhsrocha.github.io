@@ -25,6 +25,8 @@
     value: "https://dhsrocha.github.io",
     foreground: styleOf(tint1, "#000"),
     background: styleOf(tint2, "#FFF"),
+    mime: "image/svg+xml",
+    level: "H",
   });
   window.matchMedia("(prefers-color-scheme: dark)").addListener(() => {
     qr.foreground = styleOf(tint1, "#000");
