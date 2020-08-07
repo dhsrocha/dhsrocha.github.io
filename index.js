@@ -13,8 +13,7 @@
   const radios = Array.from(document.querySelectorAll(radioQuery));
 
   // ::: Register service worker: https://www.pwabuilder.com/serviceworker
-  "serviceWorker" in navigator &&
-    navigator.serviceWorker.register("./scripts/sw.js");
+  "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js");
 
   const styleOf = (value, fall) => style.getPropertyValue(value) || fall;
 
