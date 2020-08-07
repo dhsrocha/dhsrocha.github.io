@@ -20,17 +20,18 @@
 
   // ::: Instantiate QR code component
   const [tint1, tint2] = ["--color-primary-tint-2", "--color-secondary-tint-1"];
+  const [rawFG, rawBG] = ["#000", "#FFF"];
   const qr = new QRious({
     element: document.getElementById("qr"),
     value: "https://dhsrocha.github.io",
-    foreground: styleOf(tint1, "#000"),
-    background: styleOf(tint2, "#FFF"),
+    foreground: styleOf(tint1, rawFG),
+    background: styleOf(tint2, rawBG),
     mime: "image/svg+xml",
     level: "H",
   });
   window.matchMedia("(prefers-color-scheme: dark)").addListener(() => {
-    qr.foreground = styleOf(tint1, "#000");
-    qr.background = styleOf(tint2, "#FFF");
+    qr.foreground = styleOf(tint1, rawFG);
+    qr.background = styleOf(tint2, rawBG);
   });
 
   // ::: Sticky header
