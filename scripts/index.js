@@ -75,7 +75,7 @@
       h3.innerHTML = post.title;
       p.innerHTML = post.body;
 
-      // ::: Comment box
+      // Comment box
       const script = document.createElement("script");
       script.src = "https://utteranc.es/client.js";
       script.setAttribute("repo", "dhsrocha/dhsrocha.github.io");
@@ -85,7 +85,7 @@
       script.setAttribute("crossorigin", "anonymous");
       script.setAttribute("async", "async");
 
-      // "Back to post beginning" button
+      // "Back to post's beginning" button
       const div = document.createElement("div");
       div.style =
         "display: flex; justify-content: flex-end; cursor: pointer; padding: 1em 2em";
@@ -141,13 +141,13 @@
     toTop.appendChild(btn);
     sec.appendChild(toTop);
 
-    // ::: Change "Go to top" button's visibility
+    // Change "Back to top" button's visibility
     sec.style = "display: block; visibility: hidden";
     const height = header.offsetHeight + footer.offsetHeight + sec.offsetHeight;
     if (height < screen.height) toTop.style = "display: none";
     sec.style = "";
 
-    // ::: Display entire screen only after all script is run.
+    // Display entire screen only after all script is run.
     document.querySelector(".pre-load").style.opacity = 1;
   });
 })(window, document, navigator, location, QRious) //
