@@ -8,7 +8,7 @@
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
   // const notes = document.getElementById("notes");
-  const navButtons = document.querySelectorAll("nav li");
+  const pagButtons = document.querySelectorAll("label.page");
   const radioQuery = "input.page[type='radio']";
   const radios = Array.from(document.querySelectorAll(radioQuery));
 
@@ -44,11 +44,10 @@
   // ::: Visual footprint for the last section accessed
   const selected = "page selected";
   const checkedId = radios.filter((e) => e.checked == true)[0].id;
-  navButtons.forEach((e) => {
-    e.firstElementChild.getAttribute("for") === checkedId &&
-      (e.className = selected);
+  pagButtons.forEach((e) => {
+    e.getAttribute("for") === checkedId && (e.parentNode.className = selected);
     e.onclick = (ev) => {
-      navButtons.forEach((el) => (el.className = ""));
+      pagButtons.forEach((el) => (el.parentNode.className = ""));
       ev.path[2].className = selected;
     };
   });
