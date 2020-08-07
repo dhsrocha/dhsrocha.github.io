@@ -209,8 +209,8 @@
 
 /* Ids / Classes */
 
+/* Horizontal menu */
 @media all {
-  /* Horizontal menu */
   ul.horizontal {
     display: flex;
 
