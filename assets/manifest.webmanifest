@@ -2,7 +2,7 @@
   "name": "Diego Rocha's portfolio.",
   "short_name": "dhsrocha",
   "display": "standalone",
-  "start_url": ".",
+  "start_url": "/index.html",
   "orientation": "portrait",
   "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
   "icons": [
