@@ -1,15 +1,13 @@
 "use strict";
 (function () {
   "use strict";
+
   importScripts(
     "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js"
   );
 
   const CACHE = "cached-page";
   const offlineFallbackPage = "/index.html";
-
-  // https://developers.google.com/web/tools/workbox/modules/workbox-sw
-  workbox.loadModule("workbox-strategies");
 
   self.addEventListener("message", (event) => {
     // https://www.pwabuilder.com/serviceworker
@@ -23,8 +21,7 @@
     );
   });
 
-  if (workbox.navigationPreload.isSupported())
-    workbox.navigationPreload.enable();
+  workbox.navigationPreload.isSupported() && workbox.navigationPreload.enable();
 
   self.addEventListener("fetch", (event) => {
     // https://www.pwabuilder.com/serviceworker
@@ -43,12 +40,6 @@
           }
         })()
       );
-    }
-
-    // https://developers.google.com/web/tools/workbox/modules/workbox-sw
-    if (event.request.url.endsWith(".png")) {
-      const cacheFirst = new strategies.CacheFirst();
-      event.respondWith(cacheFirst.handle({ request: event.request }));
     }
   });
 })();
