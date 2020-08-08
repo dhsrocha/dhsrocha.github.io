@@ -17,8 +17,8 @@
   ],
   "shortcuts": [
     {
+      "name": "Diego Rocha",
       "short_name": "Diego Rocha",
-      "name": "Diego Rocha, a Software Engineer",
       "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
       "url": "/",
       "icons": [{ "src": "/assets/logo.png", "sizes": "512x512" }]
