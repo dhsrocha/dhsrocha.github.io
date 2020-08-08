@@ -1,11 +1,11 @@
 {
   "short_name": "Diego Rocha",
-  "name": "Diego Rocha, a Software Engineer",
+  "name": "Diego Rocha",
   "display": "minimal-ui",
   "start_url": "/",
   "scope": "/",
   "orientation": "portrait",
-  "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
+  "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, his work and some notes about himself.",
   "theme_color": "#212121",
   "background_color": "#E7E7E7",
   "icons": [
