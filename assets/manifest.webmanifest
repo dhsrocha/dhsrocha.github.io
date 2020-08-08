@@ -38,6 +38,11 @@
       "src": "logo512.png",
       "sizes": "512x512",
       "purpose": "any maskable"
+    },
+    {
+      "src": "logo1024.png",
+      "sizes": "1024x1024",
+      "purpose": "any maskable"
     }
   ],
   "shortcuts": [
@@ -47,6 +52,7 @@
       "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
       "url": "/",
       "icons": [
+        { "src": "/assets/logo1024.png", "sizes": "1024x1024" },
         { "src": "/assets/logo512.png", "sizes": "512x512" },
         { "src": "/assets/logo256.png", "sizes": "256x256" },
         { "src": "/assets/logo128.png", "sizes": "128x128" },
