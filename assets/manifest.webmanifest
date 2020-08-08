@@ -10,7 +10,32 @@
   "background_color": "#E7E7E7",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "logo48.png",
+      "sizes": "48x48",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo72.png",
+      "sizes": "72x72",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo96.png",
+      "sizes": "96x96",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo128.png",
+      "sizes": "128x128",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo256.png",
+      "sizes": "256x256",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
@@ -21,7 +46,14 @@
       "short_name": "Diego Rocha",
       "description": "The portfolio of software engineer Diego Rocha, displaying a self presentation, works and some notes about himself.",
       "url": "/",
-      "icons": [{ "src": "/assets/logo.png", "sizes": "512x512" }]
+      "icons": [
+        { "src": "/assets/logo512.png", "sizes": "512x512" },
+        { "src": "/assets/logo256.png", "sizes": "256x256" },
+        { "src": "/assets/logo128.png", "sizes": "128x128" },
+        { "src": "/assets/logo96.png", "sizes": "96x96" },
+        { "src": "/assets/logo72.png", "sizes": "72x72" },
+        { "src": "/assets/logo48.png", "sizes": "48x48" }
+      ]
     }
   ]
 }
