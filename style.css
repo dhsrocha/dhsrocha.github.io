@@ -229,8 +229,8 @@
   }
   @media (min-width: 50em) {
     section.squared {
-      min-width: 13.8vh;
-      min-height: 13.8vh;
+      min-width: 15%;
+      min-height: 15%;
     }
   }
 }
