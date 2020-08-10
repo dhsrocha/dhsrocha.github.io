@@ -84,50 +84,46 @@
 
   // ::: Load posts and inject them in each article component
   const loadPosts = async () => {
-    // TODO: Need larger range of posts
     const url =
       "https://api.github.com/repos/dhsrocha/dhsrocha.github.io/issues?" +
-      "state=closed&labels=blog-post&assignee=dhsrocha&page=1&per_page=1";
+      "state=closed&labels=blog-post&assignee=dhsrocha";
     const res = await fetch(url);
     const data = await res.json();
 
     // TODO: Need some preloading
 
+    // Posts to articles
     const articles = document.getElementById("articles");
     data.forEach((post) => {
-      const number = "article-" + post.number;
+      const artId = "article-" + post.number;
+
+      const radio = document.createElement("input");
+      const label = document.createElement("label");
 
       const art = document.createElement("article");
       const h3 = document.createElement("h3");
       const p = document.createElement("p");
 
-      art.id = number;
+      radio.id = "article-tab__" + post.number;
+      radio.classList.add("undisplayed", "paged");
+      radio.setAttribute("type", "radio");
+      radio.setAttribute("name", "article-tabs");
+
+      label.setAttribute("for", radio.id);
+
+      art.id = artId;
       h3.innerHTML = post.title;
       p.innerHTML = post.body;
 
-      // Comment box
-      const script = document.createElement("script");
-      script.src = "https://utteranc.es/client.js";
-      script.setAttribute("repo", "dhsrocha/dhsrocha.github.io");
-      script.setAttribute("issue-number", post.number);
-      script.setAttribute("label", "blog-post");
-      script.setAttribute("theme", "preferred-color-scheme");
-      script.setAttribute("crossorigin", "anonymous");
-      script.setAttribute("async", "async");
+      // TODO: Jump to related posts
 
-      // "Back to post's beginning" button
-      const div = document.createElement("div");
-      div.style =
-        "display: flex; justify-content: flex-end; cursor: pointer; padding: 1em 2em";
+      // TODO: Some comment box
 
-      const em = document.createElement("em");
-      em.className = "far fa-arrow-alt-circle-up";
-      em.setAttribute("title", "Back to article top");
-      em.onclick = () => (location.href = "#" + number);
-
-      articles.appendChild(art);
-      [h3, p, script, div].forEach((e) => art.appendChild(e));
-      div.appendChild(em);
+      // Appending elements
+      label.appendChild(art);
+      articles.appendChild(radio);
+      articles.appendChild(label);
+      [h3, p].forEach((e) => art.appendChild(e));
     });
   };
   document

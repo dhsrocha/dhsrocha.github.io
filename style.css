@@ -204,12 +204,6 @@
     color: var(--color-primary-tint-3);
   }
 }
-/* Article */
-@media all {
-  article {
-    padding: 1em 0 2em;
-  }
-}
 
 /* Ids / Classes */
 
@@ -290,5 +284,34 @@
 @media all {
   .icons {
     font-size: 2em;
+  }
+}
+/* Articles */
+@media all {
+  #articles {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2.5vh 1vw;
+
+    margin-bottom: 1em;
+  }
+  #articles article {
+    height: 3em;
+    padding: 0.5em 1em;
+    overflow: hidden;
+
+    background-color: var(--color-secondary-tint-2);
+    border-radius: 0.5em;
+  }
+  #articles p {
+    font-family: Futura;
+  }
+  #articles article:hover {
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+  }
+  #articles input.paged[type="radio"]:checked + label article {
+    height: auto;
+    transform: none;
   }
 }
