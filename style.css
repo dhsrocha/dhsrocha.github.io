@@ -45,6 +45,9 @@
     background-color: var(--color-secondary-tint-1);
 
     padding: 2.5%;
+
+    display: flex;
+    flex-direction: column;
   }
   p {
     text-align: justify;
@@ -90,14 +93,14 @@
     body > header,
     body > main,
     body > footer {
-      max-width: 70%;
+      width: 70%;
     }
   }
   @media (min-width: 70em) {
     body > header,
     body > main,
     body > footer {
-      max-width: 55vw;
+      width: 55vw;
     }
   }
 }
@@ -160,6 +163,9 @@
 }
 /* Main */
 @media all {
+  main {
+    flex: 1 0 auto;
+  }
   main header,
   main p {
     padding: 0 0 1em;
@@ -172,6 +178,7 @@
     flex-flow: row nowrap;
     align-items: stretch;
     justify-content: center;
+    flex-shrink: 0;
 
     margin: 0 auto;
     padding: 1em 0;
