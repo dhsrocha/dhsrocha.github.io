@@ -48,7 +48,7 @@
   const styleOf = (value, fall) => style.getPropertyValue(value) || fall;
 
   // ::: Instantiate QR code component
-  const [tint1, tint2] = ["--color-primary-tint-2", "--color-secondary-tint-1"];
+  const [tint1, tint2] = ["--color-primary-tint-3", "--color-secondary-tint-1"];
   const [rawFG, rawBG] = ["#000", "#FFF"];
   const qr = new QRious({
     element: document.getElementById("qr"),
