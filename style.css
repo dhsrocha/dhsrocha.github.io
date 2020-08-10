@@ -243,20 +243,20 @@
 }
 /* Pagination */
 @media all {
-  input.page[type="radio"],
-  input.page[type="radio"] + section {
+  input.paged[type="radio"],
+  input.paged[type="radio"] + section {
     display: none;
   }
-  input.page[type="radio"]:checked + section {
+  input.paged[type="radio"]:checked + section {
     display: block;
   }
-  label.page {
+  label.paged {
     cursor: pointer;
   }
-  li.page.selected * {
+  li.paged.selected * {
     color: var(--color-primary-highlight);
   }
-  li.page.selected span {
+  li.paged.selected span {
     font-weight: 600;
   }
 }

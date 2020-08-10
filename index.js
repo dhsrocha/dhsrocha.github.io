@@ -41,8 +41,8 @@
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
   // const notes = document.getElementById("notes");
-  const pagButtons = document.querySelectorAll("label.page");
-  const radioQuery = "input.page[type='radio']";
+  const pagButtons = document.querySelectorAll("label.paged");
+  const radioQuery = "input.paged[type='radio']";
   const radios = Array.from(document.querySelectorAll(radioQuery));
 
   const styleOf = (value, fall) => style.getPropertyValue(value) || fall;
@@ -71,7 +71,7 @@
   };
 
   // ::: Visual footprint for the last section accessed
-  const selected = "page selected";
+  const selected = "paged selected";
   const checkedId = radios.filter((e) => e.checked == true)[0].id;
   pagButtons.forEach((e) => {
     e.getAttribute("for") === checkedId && (e.parentNode.className = selected);
