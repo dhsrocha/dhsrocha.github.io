@@ -1,5 +1,38 @@
 "use strict";
-(async function (window, document, navigator, location, QRious) {
+// ::: Updatable service worker registration:
+// https://github.com/GoogleChromeLabs/sw-precache/blob/master/demo/app/js/service-worker-registration.js#L20
+(function (window, navigator) {
+  "use strict";
+  "serviceWorker" in navigator &&
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("sw.js")
+        .then((reg) => {
+          reg.onupdatefound = () => {
+            const installing = reg.installing;
+            installing.onstatechange = () => {
+              switch (installing.state) {
+                case "installed":
+                  if (navigator.serviceWorker.controller)
+                    console.log("New or updated content is available.");
+                  else console.log("Content is now available offline!");
+                  break;
+                case "redundant":
+                  console.error(
+                    "The installing service worker became redundant."
+                  );
+                  break;
+              }
+            };
+          };
+        })
+        .catch((e) => {
+          console.error("Error during service worker registration:", e);
+        });
+    });
+})(window, navigator);
+
+(async function (window, document, location, QRious) {
   "use strict";
   // ::: Constants
   const backToTopLabel = "Back to page top";
@@ -11,9 +44,6 @@
   const pagButtons = document.querySelectorAll("label.page");
   const radioQuery = "input.page[type='radio']";
   const radios = Array.from(document.querySelectorAll(radioQuery));
-
-  // ::: Register service worker: https://www.pwabuilder.com/serviceworker
-  "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js");
 
   const styleOf = (value, fall) => style.getPropertyValue(value) || fall;
 
@@ -150,5 +180,5 @@
     // Display entire screen only after all script is run.
     document.querySelector(".pre-load").style.opacity = 1;
   });
-})(window, document, navigator, location, QRious) //
+})(window, document, location, QRious) //
   .catch((err) => console.error(err.message));
