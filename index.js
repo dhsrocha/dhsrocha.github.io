@@ -32,7 +32,7 @@
     });
 })(window, navigator);
 
-(async function (window, document, location, QRious) {
+(async function (window, document, QRious) {
   "use strict";
   // ::: Constants
   const backToTopLabel = "Back to page top";
@@ -176,5 +176,4 @@
     // Display entire screen only after all script is run.
     document.querySelector(".pre-load").style.opacity = 1;
   });
-})(window, document, location, QRious) //
-  .catch((err) => console.error(err.message));
+})(window, document, QRious).catch((err) => console.error(err.message));
