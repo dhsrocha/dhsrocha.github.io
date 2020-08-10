@@ -47,7 +47,8 @@
     e.getAttribute("for") === checkedId && (e.parentNode.className = selected);
     e.onclick = (ev) => {
       pagButtons.forEach((el) => (el.parentNode.className = ""));
-      ev.path[2].className = selected;
+      const path = ev.path || (ev.composedPath && ev.composedPath());
+      path[2].className = selected;
     };
   });
 
