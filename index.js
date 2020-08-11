@@ -162,10 +162,7 @@
 
     // Show "Back to top" button
     window.pageYOffset > 150 && toTop.classList.remove(transparent);
-    if (window.pageYOffset <= 150) {
-      toTop.style = "";
-      toTop.classList.add(transparent);
-    }
+    window.pageYOffset <= 160 && toTop.classList.add(transparent);
   };
   // Display entire screen only after all script is run.
   document.body.style.opacity = 1;
