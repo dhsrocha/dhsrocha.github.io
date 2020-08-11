@@ -161,11 +161,11 @@
     window.pageYOffset < 10 && header.classList.remove(stickyClass);
 
     // Show "Back to top" button
-    if (window.pageYOffset <= 10) {
+    window.pageYOffset > 150 && toTop.classList.remove(transparent);
+    if (window.pageYOffset <= 150) {
       toTop.style = "";
       toTop.classList.add(transparent);
     }
-    window.pageYOffset > 10 && toTop.classList.remove(transparent);
   };
   // Display entire screen only after all script is run.
   document.body.style.opacity = 1;
