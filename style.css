@@ -176,9 +176,11 @@
   main {
     flex: 1 0 auto;
   }
-  main header,
-  main p {
-    padding: 0 0 1em;
+  main,
+  main section {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2.5vh 1vw;
   }
 }
 /* Footer */
@@ -252,7 +254,7 @@
     display: none;
   }
   input.paged[type="radio"]:checked + section {
-    display: block;
+    display: flex;
   }
   label.paged {
     cursor: pointer;
@@ -282,13 +284,6 @@
 }
 /* Articles */
 @media all {
-  #articles {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 2.5vh 1vw;
-
-    margin-bottom: 1em;
-  }
   #articles article {
     height: 3em;
     padding: 0.5em 1em;
