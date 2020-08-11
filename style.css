@@ -307,8 +307,8 @@
 @media all {
   #to-top {
     position: fixed;
-    top: 80vh;
-    right: 10vw;
+    right: 5.5vw;
+    bottom: 5vh;
 
     width: 6em;
     height: 6em;
@@ -334,12 +334,25 @@
   #to-top:hover em {
     color: var(--color-secondary-tint-1);
   }
+  @media (min-width: 30em) {
+    #to-top {
+      right: 15.5vw;
+      bottom: 5vh;
+    }
+  }
   @media (min-width: 50em) {
     #to-top {
-      width: 5em;
-      height: 5em;
+      right: 21.5vw;
+      bottom: 5vh;
+    }
+  }
+  @media (min-width: 70em) {
+    #to-top {
+      width: 6em;
+      height: 6em;
 
-      right: 25vw;
+      right: 27.5vw;
+      bottom: 10vh;
     }
   }
 }
