@@ -340,12 +340,14 @@
   #to-top:hover {
     border: 0.125em solid var(--color-primary-tint-3);
   }
-  #to-top:hover {
-    background-color: var(--color-primary-tint-1);
-    border-color: var(--color-primary-tint-1);
-  }
-  #to-top:hover em {
-    color: var(--color-secondary-tint-1);
+  @media (max-width: 30em) {
+    #to-top:active {
+      background-color: var(--color-primary-tint-1);
+      border-color: var(--color-primary-tint-1);
+    }
+    #to-top:active em {
+      color: var(--color-secondary-tint-1);
+    }
   }
   @media (min-width: 30em) {
     #to-top {
@@ -357,6 +359,13 @@
     #to-top {
       right: 21.5vw;
       bottom: 5vh;
+    }
+    #to-top:hover {
+      background-color: var(--color-primary-tint-1);
+      border-color: var(--color-primary-tint-1);
+    }
+    #to-top:hover em {
+      color: var(--color-secondary-tint-1);
     }
   }
   @media (min-width: 70em) {
