@@ -41,8 +41,6 @@
   const style = getComputedStyle(document.documentElement);
   const header = document.querySelector("header");
   const main = document.querySelector("main");
-  const footer = document.querySelector("footer");
-  // const notes = document.getElementById("notes");
   const pagButtons = document.querySelectorAll("label.paged");
   const radioQuery = "input.paged[type='radio']";
   const radios = Array.from(document.querySelectorAll(radioQuery));
@@ -140,9 +138,6 @@
   msg.appendChild(p);
   main.appendChild(msg);
 
-  // Display entire screen only after all script is run.
-  document.body.style.opacity = 1;
-
   // ::: "Back to top" button
   const toTop = document.createElement("a");
   toTop.id = "to-top";
@@ -172,5 +167,7 @@
     }
     window.pageYOffset > 10 && toTop.classList.remove(transparent);
   };
+  // Display entire screen only after all script is run.
+  document.body.style.opacity = 1;
   // :::
 })(window, document, QRious).catch((err) => console.error(err.message));
