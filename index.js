@@ -119,6 +119,7 @@
       articles.appendChild(radio);
       articles.appendChild(label);
       [h3, p].forEach((e) => art.appendChild(e));
+      articles.style.opacity = 1;
     });
   };
   document
@@ -140,7 +141,7 @@
   main.appendChild(msg);
 
   // Display entire screen only after all script is run.
-  document.querySelector(".pre-load").style.opacity = 1;
+  document.body.style.opacity = 1;
 
   // ::: "Back to top" button
   const toTop = document.createElement("a");

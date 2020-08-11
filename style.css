@@ -258,13 +258,6 @@
     font-weight: 600;
   }
 }
-/* Pre-load */
-@media all {
-  .pre-load {
-    transition: 0.75s ease;
-    opacity: 0;
-  }
-}
 /* Neutral styles */
 @media all {
   .clear {
@@ -280,6 +273,7 @@
     display: none;
   }
   .transparent {
+    transition: 0.75s ease;
     opacity: 0;
   }
 }
