@@ -117,8 +117,8 @@
       articles.appendChild(radio);
       articles.appendChild(label);
       [h3, p].forEach((e) => art.appendChild(e));
-      articles.style.opacity = 1;
     });
+    articles.style.opacity = 1;
   };
   document
     .getElementById("nav-tab__notes")
