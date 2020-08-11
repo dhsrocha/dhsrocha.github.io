@@ -14,6 +14,8 @@
     --color-primary-tint-2: #292929;
     --color-primary-tint-3: #646464;
 
+    --color-secondary-highlight: #fff;
+
     --color-secondary-tint-1: #e7e7e7;
     --color-secondary-tint-2: #dedede;
     --color-secondary-tint-3: #b9b9b9;
@@ -25,6 +27,8 @@
       --color-primary-tint-1: #d0d0d0;
       --color-primary-tint-2: #c7c7c7;
       --color-primary-tint-3: #a2a2a2;
+
+      --color-secondary-highlight: #000;
 
       --color-secondary-tint-1: #212121;
       --color-secondary-tint-2: #292929;
@@ -128,6 +132,8 @@
 
     flex-flow: row wrap;
     justify-content: space-between;
+
+    text-shadow: 3px 3px 1px var(--color-secondary-highlight);
 
     column-gap: 5vw;
     transition: all 0.4s ease-in-out;
