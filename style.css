@@ -306,6 +306,10 @@
 /* To Top */
 @media all {
   #to-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: fixed;
     right: 5.5vw;
     bottom: 5vh;
@@ -322,6 +326,9 @@
   #to-top,
   #to-top * {
     transition: all 0.3s ease-in;
+  }
+  #to-top em {
+    font-weight: bolder;
   }
   #to-top,
   #to-top:hover {
