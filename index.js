@@ -35,10 +35,12 @@
 (async function (window, document, QRious) {
   "use strict";
   // ::: Constants
-  const backToTopLabel = "Back to page top";
+  const labels = { toTop: "Back to page top" };
+  const classes = { undisplayed: "undisplayed", transparent: "transparent" };
   // ::: Global elements
   const style = getComputedStyle(document.documentElement);
   const header = document.querySelector("header");
+  const main = document.querySelector("main");
   const footer = document.querySelector("footer");
   // const notes = document.getElementById("notes");
   const pagButtons = document.querySelectorAll("label.paged");
@@ -62,13 +64,6 @@
     qr.foreground = styleOf(tint1, rawFG);
     qr.background = styleOf(tint2, rawBG);
   });
-
-  // ::: Sticky header
-  const stickyClass = "sticky";
-  document.onscroll = () => {
-    window.pageYOffset > 0 && header.classList.add(stickyClass);
-    window.pageYOffset < 10 && header.classList.remove(stickyClass);
-  };
 
   // ::: Visual footprint for the last section accessed
   const selected = "paged selected";
@@ -105,7 +100,7 @@
       const p = document.createElement("p");
 
       radio.id = "article-tab__" + post.number;
-      radio.classList.add("undisplayed", "paged");
+      radio.classList.add(classes.undisplayed, "paged");
       radio.setAttribute("type", "radio");
       radio.setAttribute("name", "article-tabs");
 
@@ -130,50 +125,51 @@
     .getElementById("nav-tab__notes")
     .addEventListener("change", loadPosts, { once: true });
 
+  // ::: Final message
+  const msg = document.createElement("div");
+  const h3 = document.createElement("h3");
+  const p = document.createElement("p");
+
+  h3.innerHTML = "I would like to hear you";
+  p.innerHTML =
+    "Reach me if you have an idea that you want to get it started. " +
+    "I would be pleased to help you with something.";
+
+  msg.appendChild(h3);
+  msg.appendChild(p);
+  main.appendChild(msg);
+
+  // Display entire screen only after all script is run.
+  document.querySelector(".pre-load").style.opacity = 1;
+
   // ::: "Back to top" button
-  document.querySelectorAll(["#notes", "#about", "#work"]).forEach((sec) => {
-    // Final message
-    const msg = document.createElement("div");
-    const h3 = document.createElement("h3");
-    const p = document.createElement("p");
+  const toTop = document.createElement("a");
+  toTop.id = "to-top";
+  toTop.classList.add(classes.transparent);
+  toTop.setAttribute("href", "#top");
+  toTop.setAttribute("aria-label", labels.toTop);
+  toTop.setAttribute("title", labels.toTop);
+  const em = document.createElement("em");
+  em.className = "icons icon-arrow-up";
+  const btn = document.createElement("button");
+  btn.classList.add(classes.undisplayed);
+  btn.innerHTML = labels.toTop;
+  [em, btn].forEach((e) => toTop.appendChild(e));
+  document.body.appendChild(toTop);
 
-    h3.innerHTML = "I would like to hear you";
-    p.innerHTML =
-      "Reach me if you have an idea that you want to get it started. " +
-      "I would be pleased to help you with something.";
+  const stickyClass = "sticky";
+  // ::: Document events
+  document.onscroll = () => {
+    // Stick header component to top
+    window.pageYOffset > 0 && header.classList.add(stickyClass);
+    window.pageYOffset < 10 && header.classList.remove(stickyClass);
 
-    msg.appendChild(h3);
-    msg.appendChild(p);
-    sec.appendChild(msg);
-
-    // "Back to top" button
-    const btn = document.createElement("button");
-    btn.onclick = () => window.scrollTo(0, 0);
-    btn.className = "clear";
-    btn.setAttribute("aria-label", backToTopLabel);
-    btn.setAttribute("title", backToTopLabel);
-
-    const em = document.createElement("em");
-    em.className = "far fa-2x fa-arrow-alt-circle-up";
-
-    const span = document.createElement("span");
-    span.innerHTML = backToTopLabel;
-    span.className = "undisplayed";
-
-    const toTop = document.createElement("div");
-    toTop.style = "display: flex; justify-content: center; height: 6em;";
-    em.appendChild(span);
-    btn.appendChild(em);
-    toTop.appendChild(btn);
-    sec.appendChild(toTop);
-
-    // Change "Back to top" button's visibility
-    sec.style = "display: block; visibility: hidden";
-    const height = header.offsetHeight + footer.offsetHeight + sec.offsetHeight;
-    if (height < screen.height) toTop.style = "display: none";
-    sec.style = "";
-
-    // Display entire screen only after all script is run.
-    document.querySelector(".pre-load").style.opacity = 1;
-  });
+    // Show "Back to top" button
+    if (window.pageYOffset <= 10) {
+      toTop.style = "";
+      toTop.classList.add(classes.transparent);
+    }
+    window.pageYOffset > 10 && toTop.classList.remove(classes.transparent);
+  };
+  // :::
 })(window, document, QRious).catch((err) => console.error(err.message));

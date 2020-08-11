@@ -279,6 +279,9 @@
   .undisplayed {
     display: none;
   }
+  .transparent {
+    opacity: 0;
+  }
 }
 /* Simple Line Icons */
 @media all {
@@ -313,5 +316,45 @@
   #articles input.paged[type="radio"]:checked + label article {
     height: auto;
     transform: none;
+  }
+}
+/* To Top */
+@media all {
+  #to-top {
+    position: fixed;
+    top: 80vh;
+    right: 10vw;
+
+    width: 6em;
+    height: 6em;
+
+    border-radius: 50%;
+    font-size: 0.5em;
+    text-align: center;
+
+    background-color: var(--color-secondary-tint-1);
+  }
+  #to-top,
+  #to-top * {
+    transition: all 0.3s ease-in;
+  }
+  #to-top,
+  #to-top:hover {
+    border: 0.125em solid var(--color-primary-tint-3);
+  }
+  #to-top:hover {
+    background-color: var(--color-primary-tint-1);
+    border-color: var(--color-primary-tint-1);
+  }
+  #to-top:hover em {
+    color: var(--color-secondary-tint-1);
+  }
+  @media (min-width: 50em) {
+    #to-top {
+      width: 5em;
+      height: 5em;
+
+      right: 25vw;
+    }
   }
 }
