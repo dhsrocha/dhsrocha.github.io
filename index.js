@@ -36,7 +36,7 @@
   "use strict";
   // ::: Constants
   const labels = { toTop: "Back to page top" };
-  const classes = { undisplayed: "undisplayed", transparent: "transparent" };
+  const [undisplayed, transparent] = ["undisplayed", "transparent"];
   // ::: Global elements
   const style = getComputedStyle(document.documentElement);
   const header = document.querySelector("header");
@@ -100,7 +100,7 @@
       const p = document.createElement("p");
 
       radio.id = "article-tab__" + post.number;
-      radio.classList.add(classes.undisplayed, "paged");
+      radio.classList.add(undisplayed, "paged");
       radio.setAttribute("type", "radio");
       radio.setAttribute("name", "article-tabs");
 
@@ -145,14 +145,14 @@
   // ::: "Back to top" button
   const toTop = document.createElement("a");
   toTop.id = "to-top";
-  toTop.classList.add(classes.transparent);
+  toTop.classList.add(transparent);
   toTop.setAttribute("href", "#top");
   toTop.setAttribute("aria-label", labels.toTop);
   toTop.setAttribute("title", labels.toTop);
   const em = document.createElement("em");
   em.className = "icons icon-arrow-up";
   const btn = document.createElement("button");
-  btn.classList.add(classes.undisplayed);
+  btn.classList.add(undisplayed);
   btn.innerHTML = labels.toTop;
   [em, btn].forEach((e) => toTop.appendChild(e));
   document.body.appendChild(toTop);
@@ -167,9 +167,9 @@
     // Show "Back to top" button
     if (window.pageYOffset <= 10) {
       toTop.style = "";
-      toTop.classList.add(classes.transparent);
+      toTop.classList.add(transparent);
     }
-    window.pageYOffset > 10 && toTop.classList.remove(classes.transparent);
+    window.pageYOffset > 10 && toTop.classList.remove(transparent);
   };
   // :::
 })(window, document, QRious).catch((err) => console.error(err.message));
