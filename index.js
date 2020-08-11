@@ -1,34 +1,26 @@
 "use strict";
 // ::: Updatable service worker registration:
 // https://github.com/GoogleChromeLabs/sw-precache/blob/master/demo/app/js/service-worker-registration.js#L20
-(function (window, navigator) {
+(async function (window, navigator) {
   "use strict";
   "serviceWorker" in navigator &&
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("sw.js")
-        .then((reg) => {
-          reg.onupdatefound = () => {
-            const installing = reg.installing;
-            installing.onstatechange = () => {
-              switch (installing.state) {
-                case "installed":
-                  if (navigator.serviceWorker.controller)
-                    console.log("New or updated content is available.");
-                  else console.log("Content is now available offline!");
-                  break;
-                case "redundant":
-                  console.error(
-                    "The installing service worker became redundant."
-                  );
-                  break;
-              }
-            };
-          };
-        })
-        .catch((e) => {
-          console.error("Error during service worker registration:", e);
-        });
+    window.addEventListener("load", async () => {
+      const reg = await navigator.serviceWorker.register("sw.js");
+      reg.onupdatefound = () => {
+        const installing = reg.installing;
+        installing.onstatechange = () => {
+          switch (installing.state) {
+            case "installed":
+              if (navigator.serviceWorker.controller)
+                console.log("New or updated content is available.");
+              else console.log("Content is now available offline!");
+              break;
+            case "redundant":
+              const msg = "The installing service worker became redundant.";
+              console.error(msg);
+          }
+        };
+      };
     });
 })(window, navigator);
 
@@ -37,15 +29,16 @@
   // ::: Constants
   const labels = { toTop: "Back to page top" };
   const [undisplayed, transparent] = ["undisplayed", "transparent"];
+  // ::: Functions
+  const create = (...ee) => ee.map((e) => document.createElement(e));
+  const select = (...ee) => ee.map((e) => document.querySelector(e));
+  const selectAll = (...ee) => ee.map((e) => [...document.querySelectorAll(e)]);
+  const styleOf = (val, fall) => style.getPropertyValue(val) || fall;
+
   // ::: Global elements
   const style = getComputedStyle(document.documentElement);
-  const header = document.querySelector("header");
-  const main = document.querySelector("main");
-  const pagButtons = document.querySelectorAll("label.paged");
-  const radioQuery = "input.paged[type='radio']";
-  const radios = Array.from(document.querySelectorAll(radioQuery));
-
-  const styleOf = (value, fall) => style.getPropertyValue(value) || fall;
+  const [header, main] = select("header", "main");
+  const [pages, radios] = selectAll("label.paged", "input.paged[type='radio']");
 
   // ::: Instantiate QR code component
   const [tint1, tint2] = ["--color-primary-tint-3", "--color-secondary-tint-1"];
@@ -66,10 +59,10 @@
   // ::: Visual footprint for the last section accessed
   const selected = "paged selected";
   const checkedId = radios.filter((e) => e.checked == true)[0].id;
-  pagButtons.forEach((e) => {
+  pages.forEach((e) => {
     e.getAttribute("for") === checkedId && (e.parentNode.className = selected);
     e.onclick = (ev) => {
-      pagButtons.forEach((el) => (el.parentNode.className = ""));
+      pages.forEach((el) => (el.parentNode.className = ""));
       const path = ev.path || (ev.composedPath && ev.composedPath());
       path[2].className = selected;
     };
@@ -90,18 +83,14 @@
     data.forEach((post) => {
       const artId = "article-" + post.number;
 
-      const radio = document.createElement("input");
-      const label = document.createElement("label");
-
-      const art = document.createElement("article");
-      const h3 = document.createElement("h3");
-      const p = document.createElement("p");
+      const [radio, label, art, h3, p] =
+        //
+        create("input", "label", "article", "h3", "p");
 
       radio.id = "article-tab__" + post.number;
       radio.classList.add(undisplayed, "paged");
       radio.setAttribute("type", "radio");
       radio.setAttribute("name", "article-tabs");
-
       label.setAttribute("for", radio.id);
 
       art.id = artId;
@@ -114,8 +103,7 @@
 
       // Appending elements
       label.appendChild(art);
-      articles.appendChild(radio);
-      articles.appendChild(label);
+      [radio, label].forEach((e) => articles.appendChild(e));
       [h3, p].forEach((e) => art.appendChild(e));
     });
     articles.style.opacity = 1;
@@ -125,29 +113,23 @@
     .addEventListener("change", loadPosts, { once: true });
 
   // ::: Final message
-  const msg = document.createElement("div");
-  const h3 = document.createElement("h3");
-  const p = document.createElement("p");
-
+  const [msg, h3, p] = create("div", "h3", "p");
   h3.innerHTML = "I would like to hear you";
   p.innerHTML =
     "Reach me if you have an idea that you want to get it started. " +
     "I would be pleased to help you with something.";
-
   msg.appendChild(h3);
   msg.appendChild(p);
   main.appendChild(msg);
 
   // ::: "Back to top" button
-  const toTop = document.createElement("a");
+  const [toTop, btn, em] = create("a", "button", "em");
   toTop.id = "to-top";
   toTop.classList.add(transparent);
   toTop.setAttribute("href", "#top");
   toTop.setAttribute("aria-label", labels.toTop);
   toTop.setAttribute("title", labels.toTop);
-  const em = document.createElement("em");
   em.className = "icons icon-arrow-up";
-  const btn = document.createElement("button");
   btn.classList.add(undisplayed);
   btn.innerHTML = labels.toTop;
   [em, btn].forEach((e) => toTop.appendChild(e));
