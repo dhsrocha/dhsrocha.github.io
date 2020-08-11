@@ -304,7 +304,7 @@
     border-radius: 0.5em;
   }
   #articles p {
-    font-family: Futura;
+    font-family: Futura, serif;
   }
   #articles article:hover {
     transform: scale(1.02);
