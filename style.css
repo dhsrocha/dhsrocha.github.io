@@ -146,6 +146,7 @@
     }
     body > header.sticky {
       position: sticky;
+      z-index: 9999;
       top: 0;
       padding-top: 1.5%;
       overflow-y: hidden;
