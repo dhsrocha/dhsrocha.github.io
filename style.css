@@ -279,16 +279,28 @@
     background-color: var(--color-secondary-tint-2);
     border-radius: 0.5em;
   }
-  #articles p {
-    font-family: Futura, serif;
-  }
   #articles article:hover {
     transform: scale(1.02);
     transition: all 0.3s ease-in-out;
   }
+  #articles header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #articles header em {
+    font-size: 1em;
+    transition: all 0.25s ease-in-out;
+  }
+  #articles p {
+    font-family: Futura, serif;
+  }
   #articles input.paged[type="radio"]:checked + label article {
     height: auto;
     transform: none;
+  }
+  #articles input.paged[type="radio"]:checked + label em {
+    transform: rotate(90deg);
   }
 }
 /* To Top */

@@ -83,9 +83,9 @@
     data.forEach((post) => {
       const artId = "article-" + post.number;
 
-      const [radio, label, art, h3, p] =
+      const [radio, label, art, header, h3, arrow, p] =
         //
-        create("input", "label", "article", "h3", "p");
+        create("input", "label", "article", "header", "h3", "em", "p");
 
       radio.id = "article-tab__" + post.number;
       radio.classList.add(undisplayed, "paged");
@@ -95,6 +95,7 @@
 
       art.id = artId;
       h3.innerHTML = post.title;
+      arrow.classList.add("icons", "icon-arrow-right");
       p.innerHTML = post.body;
 
       // TODO: Jump to related posts
@@ -104,7 +105,8 @@
       // Appending elements
       label.appendChild(art);
       [radio, label].forEach((e) => articles.appendChild(e));
-      [h3, p].forEach((e) => art.appendChild(e));
+      [h3, arrow].forEach((e) => header.appendChild(e));
+      [header, p].forEach((e) => art.appendChild(e));
     });
     articles.style.opacity = 1;
   };
