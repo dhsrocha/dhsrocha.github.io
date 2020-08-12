@@ -37,13 +37,15 @@
   const styleOf = (val, fall) => style.getPropertyValue(val) || fall;
   // Highlights a selected container from a group according to a criterion
   const selected = "paged selected";
-  const highlight = (group, levelsAbove, criterion) => {
+  const highlight = (group, parent, criterion) => {
     group.forEach((e) => {
-      criterion(e) && (e.parentNode.className = selected);
+      criterion(e) && (e.closest(parent).className = selected);
       e.onclick = (ev) => {
-        group.forEach((el) => (el.parentNode.className = ""));
-        const path = ev.path || (ev.composedPath && ev.composedPath());
-        path[levelsAbove].className = selected;
+        group
+          .map((el) => el.closest(parent))
+          .filter((el) => el)
+          .forEach((el) => (el.className = ""));
+        ev.target.closest(parent).className = selected;
       };
     });
   };
@@ -75,7 +77,7 @@
 
   // ::: Visual footprint for the last section accessed
   const checkedId = radios.filter((e) => e.checked == true)[0].id;
-  highlight(pages, 2, (e) => e.getAttribute("for") === checkedId);
+  highlight(pages, "li", (e) => e.getAttribute("for") === checkedId);
 
   // ::: Load posts and inject them in each article component
   const loadPosts = async () => {
