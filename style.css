@@ -234,19 +234,6 @@
     justify-content: space-between;
   }
 }
-/* Squared */
-@media all {
-  section.squared canvas {
-    width: 100%;
-    height: auto;
-  }
-  @media (min-width: 50em) {
-    section.squared {
-      height: calc(9%);
-      width: calc(9vw);
-    }
-  }
-}
 /* Pagination */
 @media all {
   input.paged[type="radio"],
@@ -370,6 +357,25 @@
 
       right: 27.5vw;
       bottom: 10vh;
+    }
+  }
+}
+/* QR Code */
+@media all {
+  #qr canvas {
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 50em) {
+    #qr {
+      height: calc(10.5%);
+      width: calc(10.5vw);
+    }
+  }
+  @media (min-width: 70em) {
+    #qr {
+      max-height: calc(8%);
+      max-width: calc(8vw);
     }
   }
 }

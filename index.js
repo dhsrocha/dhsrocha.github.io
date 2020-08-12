@@ -44,7 +44,7 @@
   const [tint1, tint2] = ["--color-primary-tint-3", "--color-secondary-tint-1"];
   const [rawFG, rawBG] = ["#000", "#FFF"];
   const qr = new QRious({
-    element: document.getElementById("qr"),
+    element: document.getElementById("qr").children[0],
     value: "https://dhsrocha.github.io",
     foreground: styleOf(tint1, rawFG),
     background: styleOf(tint2, rawBG),
