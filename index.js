@@ -35,6 +35,18 @@
   const select = (...ee) => ee.map((e) => document.querySelector(e));
   const selectAll = (...ee) => ee.map((e) => [...document.querySelectorAll(e)]);
   const styleOf = (val, fall) => style.getPropertyValue(val) || fall;
+  // Highlights a selected container from a group according to a criterion
+  const selected = "paged selected";
+  const highlight = (group, levelsAbove, criterion) => {
+    group.forEach((e) => {
+      criterion(e) && (e.parentNode.className = selected);
+      e.onclick = (ev) => {
+        group.forEach((el) => (el.parentNode.className = ""));
+        const path = ev.path || (ev.composedPath && ev.composedPath());
+        path[levelsAbove].className = selected;
+      };
+    });
+  };
 
   // ::: Global elements
   // ::: Created
@@ -62,16 +74,8 @@
   });
 
   // ::: Visual footprint for the last section accessed
-  const selected = "paged selected";
   const checkedId = radios.filter((e) => e.checked == true)[0].id;
-  pages.forEach((e) => {
-    e.getAttribute("for") === checkedId && (e.parentNode.className = selected);
-    e.onclick = (ev) => {
-      pages.forEach((el) => (el.parentNode.className = ""));
-      const path = ev.path || (ev.composedPath && ev.composedPath());
-      path[2].className = selected;
-    };
-  });
+  highlight(pages, 2, (e) => e.getAttribute("for") === checkedId);
 
   // ::: Load posts and inject them in each article component
   const loadPosts = async () => {
@@ -123,7 +127,7 @@
       return container;
     });
 
-    // Pages and pagination
+    // Pages
     const groups = [];
     for (let i = 0; i < sections.length; i += 3) {
       if (i + 3 < sections.length) groups.push(sections.slice(i, i + 3));
@@ -146,19 +150,21 @@
         [radio, p].forEach((e) => container.appendChild(e));
         return container;
       });
-    const paginations = document.createElement("ul");
-    paginations.classList.add("horizontal");
-    // Appending elements
-    pages.forEach((e, i) => {
+    // Pagination
+    const pagination = document.createElement("ul");
+    pagination.classList.add("horizontal");
+    [...Array(pages.length).keys()].map((i) => {
       const [li, label] = create("li", "label");
       label.setAttribute("for", pageName + i);
       label.innerHTML = i + 1;
       li.appendChild(label);
-      paginations.appendChild(li);
-      articles.appendChild(e);
+      pagination.appendChild(li);
+      return li;
     });
-    articles.appendChild(paginations);
-
+    // Appending elements
+    pages.forEach((e) => articles.appendChild(e));
+    articles.appendChild(pagination);
+    // Display after finished loading.
     articles.style.opacity = 1;
   };
   const preloadPosts = () => {
