@@ -298,9 +298,7 @@
 
     background-color: var(--color-secondary-tint-2);
     border-radius: 0.5em;
-  }
-  #articles article:hover {
-    transform: scale(1.02);
+
     transition: all 0.3s ease-in-out;
   }
   #articles header {
@@ -333,6 +331,11 @@
   }
   #articles input.paged[type="radio"]:checked + label em {
     transform: rotate(90deg);
+  }
+  @media (min-width: 50em) {
+    #articles article:hover {
+      transform: scale(1.02);
+    }
   }
 }
 /* To Top */
