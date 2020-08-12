@@ -156,6 +156,7 @@
   }
   @media (max-width: 50em) {
     body > header {
+      width: 100%;
       flex-flow: column nowrap;
       justify-content: space-around;
     }
