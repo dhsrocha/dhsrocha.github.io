@@ -157,6 +157,6 @@
     window.pageYOffset <= 160 && toTop.classList.add(transparent);
   };
   // Display entire screen only after all script is run.
-  document.body.style.opacity = 1;
+  window.onload = () => (document.body.style.opacity = 1);
   // :::
 })(window, document, QRious);
