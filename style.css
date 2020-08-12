@@ -268,6 +268,30 @@
     font-size: 2em;
   }
 }
+/* Spinner */
+@media all {
+  .spinner {
+    min-width: 3em;
+    min-height: 3em;
+  }
+  .spinner:after {
+    content: " ";
+    display: block;
+    width: 2em;
+    height: 2em;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 0.125em solid var(--color-primary-tint-1);
+    border-color: var(--color-primary-tint-1) transparent
+      var(--color-primary-tint-1) transparent;
+    animation: spinner 1.2s linear infinite;
+  }
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
 /* Articles */
 @media all {
   #articles article {

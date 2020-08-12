@@ -29,6 +29,7 @@
   // ::: Constants
   const labels = { toTop: "Back to page top" };
   const [undisplayed, transparent] = ["undisplayed", "transparent"];
+
   // ::: Functions
   const create = (...ee) => ee.map((e) => document.createElement(e));
   const select = (...ee) => ee.map((e) => document.querySelector(e));
@@ -36,8 +37,12 @@
   const styleOf = (val, fall) => style.getPropertyValue(val) || fall;
 
   // ::: Global elements
+  // ::: Created
+  const [spinner] = create("div");
+  spinner.classList.add("spinner");
+  // ::: Selected
   const style = getComputedStyle(document.documentElement);
-  const [header, main] = select("header", "main");
+  const [header, main, notes] = select("header", "main", "#notes");
   const [pages, radios] = selectAll("label.paged", "input.paged[type='radio']");
 
   // ::: Instantiate QR code component
@@ -76,8 +81,6 @@
     const res = await fetch(url);
     const data = await res.json();
 
-    // TODO: Need some preloading
-
     // Posts to articles
     const articles = document.getElementById("articles");
     data.forEach((post) => {
@@ -110,9 +113,14 @@
     });
     articles.style.opacity = 1;
   };
+  const preloadPosts = () => {
+    notes.appendChild(spinner);
+    const resolve = () => notes.removeChild(spinner);
+    loadPosts().then(resolve);
+  };
   document
     .getElementById("nav-tab__notes")
-    .addEventListener("change", loadPosts, { once: true });
+    .addEventListener("change", preloadPosts, { once: true });
 
   // ::: Final message
   const [msg, h3, p] = create("div", "h3", "p");
