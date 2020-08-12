@@ -8,31 +8,31 @@
 /* Colors */
 @media all {
   :root {
-    --color-primary-highlight: #000;
 
     --color-primary-tint-1: #212121;
     --color-primary-tint-2: #292929;
     --color-primary-tint-3: #646464;
 
-    --color-secondary-highlight: #fff;
-
     --color-secondary-tint-1: #e7e7e7;
     --color-secondary-tint-2: #dedede;
     --color-secondary-tint-3: #b9b9b9;
+
+    --color-highlight: #000;
+    --color-textshadow: #b9b9b9;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --color-primary-highlight: #fff;
 
       --color-primary-tint-1: #d0d0d0;
       --color-primary-tint-2: #c7c7c7;
       --color-primary-tint-3: #a2a2a2;
 
-      --color-secondary-highlight: #000;
-
       --color-secondary-tint-1: #212121;
       --color-secondary-tint-2: #292929;
       --color-secondary-tint-3: #535353;
+
+      --color-highlight: #fff;
+      --color-textshadow: #000;
     }
   }
 }
@@ -48,14 +48,13 @@
   html {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    background-color: var(--color-secondary-tint-1);
   }
   body {
-    background-color: var(--color-secondary-tint-1);
-
-    padding: 2.5%;
-
     display: flex;
     flex-direction: column;
+
+    padding: 2.5%;
   }
   p {
     text-align: justify;
@@ -133,7 +132,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
 
-    text-shadow: 3px 3px 1px var(--color-secondary-highlight);
+    text-shadow: 3px 3px 1px var(--color-textshadow);
 
     column-gap: 5vw;
     transition: all 0.4s ease-in-out;
@@ -247,7 +246,7 @@
     cursor: pointer;
   }
   li.paged.selected * {
-    color: var(--color-primary-highlight);
+    color: var(--color-highlight);
   }
   li.paged.selected span {
     font-weight: 600;
