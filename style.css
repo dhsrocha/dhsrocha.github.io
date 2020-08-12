@@ -312,6 +312,15 @@
     font-size: 1em;
     transition: all 0.25s ease-in-out;
   }
+  #articles .horizontal {
+    justify-content: center;
+  }
+  #articles .horizontal * {
+    padding: 0.5em;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: var(--color-primary-tint-3);
+  }
   #articles section {
     font-family: Futura, serif;
     height: 0;
@@ -331,6 +340,7 @@
   #articles footer time {
     font-weight: bolder;
   }
+  #articles input.paged[type="radio"]:checked + section,
   #articles input.paged[type="radio"]:checked + label section {
     height: auto;
     opacity: 1;

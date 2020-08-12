@@ -83,11 +83,11 @@
 
     // Posts to articles
     const articles = document.getElementById("articles");
-    data.forEach((post) => {
+    const sections = data.map((post) => {
       const artId = "article-" + post.number;
 
-      const tags = ["input", "label", "article", "section"];
-      const [radio, label, art, content] = create(...tags);
+      const tags = ["div", "input", "label", "article", "section"];
+      const [container, radio, label, art, content] = create(...tags);
       const [header, h3, arrow] = create("header", "h3", "em");
       const [footer, updatedAt, time] = create("footer", "span", "time");
 
@@ -115,12 +115,50 @@
 
       // Appending elements
       label.appendChild(art);
-      [radio, label].forEach((e) => articles.appendChild(e));
-      [h3, arrow].forEach((e) => header.appendChild(e));
       footer.appendChild(updatedAt);
       updatedAt.appendChild(time);
+      [h3, arrow].forEach((e) => header.appendChild(e));
       [header, content, footer].forEach((e) => art.appendChild(e));
+      [radio, label].forEach((e) => container.appendChild(e));
+      return container;
     });
+
+    // Pages and pagination
+    const groups = [];
+    for (let i = 0; i < sections.length; i += 3) {
+      if (i + 3 < sections.length) groups.push(sections.slice(i, i + 3));
+      else groups.push(sections.slice(i, sections.length));
+    }
+    const pageName = "page-tab__";
+    const pages = groups
+      .map((g) => {
+        const page = document.createElement("section");
+        g.forEach((e) => page.appendChild(e));
+        return page;
+      })
+      .map((p, i) => {
+        const [container, radio] = create("div", "input");
+        radio.classList.add("paged");
+        radio.setAttribute("type", "radio");
+        radio.setAttribute("name", "page-tabs");
+        radio.id = pageName + i;
+        i === 0 && (radio.checked = true);
+        [radio, p].forEach((e) => container.appendChild(e));
+        return container;
+      });
+    const paginations = document.createElement("ul");
+    paginations.classList.add("horizontal");
+    // Appending elements
+    pages.forEach((e, i) => {
+      const [li, label] = create("li", "label");
+      label.setAttribute("for", pageName + i);
+      label.innerHTML = i + 1;
+      li.appendChild(label);
+      paginations.appendChild(li);
+      articles.appendChild(e);
+    });
+    articles.appendChild(paginations);
+
     articles.style.opacity = 1;
   };
   const preloadPosts = () => {
