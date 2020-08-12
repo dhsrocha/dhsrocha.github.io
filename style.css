@@ -320,8 +320,13 @@
   #articles footer {
     text-align: right;
   }
+  #articles span,
+  #articles time {
+    color: var(--color-primary-tint-3);
+  }
   #articles footer span {
     font-style: italic;
+    font-size: 75%;
   }
   #articles footer time {
     font-weight: bolder;
