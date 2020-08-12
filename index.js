@@ -100,6 +100,9 @@
       art.id = artId;
       h3.innerHTML = post.title;
       arrow.classList.add("icons", "icon-arrow-right");
+      const toggleRadio = (e) =>
+        (e.onclick = () => (radio.checked = !radio.checked));
+      [header, content].forEach(toggleRadio);
       content.innerHTML = post.body;
 
       updatedAt.innerHTML = "Last updated at ";
