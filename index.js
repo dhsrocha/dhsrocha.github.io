@@ -13,16 +13,16 @@
             case "installed":
               if (navigator.serviceWorker.controller)
                 console.log("New or updated content is available.");
-              else console.log("Content is now available offline!");
+              else throw new Error("Content is now available offline!");
               break;
             case "redundant":
               const msg = "The installing service worker became redundant.";
-              console.error(msg);
+              throw new Error(msg);
           }
         };
       };
     });
-})(window, navigator);
+})(window, navigator).catch((err) => console.error(err.message));
 
 (async function (window, document, QRious) {
   "use strict";
@@ -151,4 +151,4 @@
   // Display entire screen only after all script is run.
   document.body.style.opacity = 1;
   // :::
-})(window, document, QRious).catch((err) => console.error(err.message));
+})(window, document, QRious);
