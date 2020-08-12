@@ -86,9 +86,10 @@
     data.forEach((post) => {
       const artId = "article-" + post.number;
 
-      const [radio, label, art, header, h3, arrow, content] =
-        //
-        create("input", "label", "article", "header", "h3", "em", "section");
+      const tags = ["input", "label", "article", "section"];
+      const [radio, label, art, content] = create(...tags);
+      const [header, h3, arrow] = create("header", "h3", "em");
+      const [footer, updatedAt, time] = create("footer", "span", "time");
 
       radio.id = "article-tab__" + post.number;
       radio.classList.add(undisplayed, "paged");
@@ -101,6 +102,10 @@
       arrow.classList.add("icons", "icon-arrow-right");
       content.innerHTML = post.body;
 
+      updatedAt.innerHTML = "Last updated at ";
+      const dt = new Date(post.updated_at);
+      time.innerHTML = dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
+
       // TODO: Jump to related posts
 
       // TODO: Some comment box
@@ -109,7 +114,9 @@
       label.appendChild(art);
       [radio, label].forEach((e) => articles.appendChild(e));
       [h3, arrow].forEach((e) => header.appendChild(e));
-      [header, content].forEach((e) => art.appendChild(e));
+      footer.appendChild(updatedAt);
+      updatedAt.appendChild(time);
+      [header, content, footer].forEach((e) => art.appendChild(e));
     });
     articles.style.opacity = 1;
   };
