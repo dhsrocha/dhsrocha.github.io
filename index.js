@@ -165,7 +165,8 @@
       return li;
     });
     // Appending elements
-    highlight(pagedIndexes, "li", (e) => e.id === pageName + 0);
+    const isFirst = (e) => e.firstChild.getAttribute("for") === pageName + 0;
+    highlight(pagedIndexes, "li", isFirst);
     pages.forEach((e) => articles.appendChild(e));
     articles.appendChild(pagination);
     // Display after finished loading.
