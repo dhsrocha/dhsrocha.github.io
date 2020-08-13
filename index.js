@@ -57,7 +57,8 @@
   // ::: Selected
   const style = getComputedStyle(document.documentElement);
   const [header, main, notes] = select("header", "main", "#notes");
-  const [pages, radios] = selectAll("label.paged", "input.paged[type='radio']");
+  const navIndexes = ["label.paged", "main input.paged[type='radio']"];
+  const [pages, navRadios] = selectAll(...navIndexes);
 
   // ::: Instantiate QR code component
   const [tint1, tint2] = ["--color-primary-tint-3", "--color-secondary-tint-1"];
@@ -76,8 +77,13 @@
   });
 
   // ::: Visual footprint for the last section accessed
-  const checkedId = radios.filter((e) => e.checked == true)[0].id;
-  highlight(pages, "li", (e) => e.getAttribute("for") === checkedId);
+  const destination = (e) => e.id.slice(9) === window.location.hash.slice(1);
+  const targetTab =
+    ["#about", "#work", "#notes"].indexOf(window.location.hash) !== -1
+      ? navRadios.find(destination)
+      : document.querySelector("#nav-tab__about");
+  targetTab.checked = true;
+  highlight(pages, "li", (e) => e.getAttribute("for") === targetTab.id);
 
   // ::: Load posts and inject them in each article component
   const loadPosts = async () => {
@@ -177,9 +183,12 @@
     const resolve = () => notes.removeChild(spinner);
     loadPosts().then(resolve);
   };
-  document
-    .getElementById("nav-tab__notes")
-    .addEventListener("change", preloadPosts, { once: true });
+
+  window.location.hash === "#notes"
+    ? preloadPosts()
+    : document
+        .getElementById("nav-tab__notes")
+        .addEventListener("change", preloadPosts, { once: true });
 
   // ::: Final message
   const [msg, h3, p] = create("div", "h3", "p");
