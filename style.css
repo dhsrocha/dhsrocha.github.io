@@ -17,7 +17,7 @@
     --color-secondary-tint-3: #b9b9b9;
 
     --color-highlight: #000;
-    --color-textshadow: #b9b9b9;
+    --color-textshadow: #c7c7c7;
   }
   @media (prefers-color-scheme: dark) {
     :root {
