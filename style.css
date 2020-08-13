@@ -61,6 +61,9 @@
   a {
     text-decoration: none;
   }
+  span {
+    color: var(--color-primary-tint-3);
+  }
   :focus {
     outline-color: var(--color-primary-tint-3);
   }
@@ -319,7 +322,6 @@
     padding: 0.5em;
     font-size: 1.25em;
     font-weight: 700;
-    color: var(--color-primary-tint-3);
   }
   #articles section {
     font-family: Futura, serif;
@@ -328,10 +330,6 @@
   }
   #articles footer {
     text-align: right;
-  }
-  #articles span,
-  #articles time {
-    color: var(--color-primary-tint-3);
   }
   #articles footer span {
     font-style: italic;
