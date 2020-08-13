@@ -226,6 +226,8 @@
     window.pageYOffset > 150 && toTop.classList.remove(classes.transparent);
     window.pageYOffset <= 160 && toTop.classList.add(classes.transparent);
   };
+  // Prevent navigation jumping to section after request finishes
+  window.location.hash = "";
   // Display entire screen only after all script is run.
   window.onload = () => (document.body.style.opacity = 1);
   // :::
