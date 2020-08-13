@@ -26,15 +26,12 @@
 
 (async function (window, document, QRious) {
   "use strict";
-  // ::: Constants
-  const labels = { toTop: "Back to page top" };
-  const [undisplayed, transparent] = ["undisplayed", "transparent"];
-
   // ::: Functions
   const create = (...ee) => ee.map((e) => document.createElement(e));
   const select = (...ee) => ee.map((e) => document.querySelector(e));
   const selectAll = (...ee) => ee.map((e) => [...document.querySelectorAll(e)]);
   const styleOf = (val, fall) => style.getPropertyValue(val) || fall;
+  const sameReducer = (o, key) => Object.assign(o, { [key]: key });
   // Highlights a selected container from a group according to a criterion
   const selected = "paged selected";
   const highlight = (group, parent, criterion) => {
@@ -49,6 +46,11 @@
       };
     });
   };
+
+  // ::: Constants
+  const labels = { toTop: "Back to page top" };
+  const classIndexes = ["undisplayed", "transparent", "sticky", "horizontal"];
+  const classes = classIndexes.reduce(sameReducer, {});
 
   // ::: Global elements
   // ::: Created
@@ -104,7 +106,7 @@
       const [footer, updatedAt, time] = create("footer", "span", "time");
 
       radio.id = "article-tab__" + post.number;
-      radio.classList.add(undisplayed, "paged");
+      radio.classList.add(classes.undisplayed, "paged");
       radio.setAttribute("type", "radio");
       radio.setAttribute("name", "article-tabs");
       label.setAttribute("for", radio.id);
@@ -160,7 +162,7 @@
       });
     // Pagination
     const pagination = document.createElement("ul");
-    pagination.classList.add("horizontal");
+    pagination.classList.add(classes.horizontal);
     const pagedIndexes = [...Array(pages.length).keys()].map((i) => {
       const [li, label, span] = create("li", "label", "span");
       label.setAttribute("for", pageName + i);
@@ -178,12 +180,13 @@
     // Display after finished loading.
     articles.style.opacity = 1;
   };
+
+  // ::: Post load handling
   const preloadPosts = () => {
     notes.appendChild(spinner);
     const resolve = () => notes.removeChild(spinner);
     loadPosts().then(resolve);
   };
-
   window.location.hash === "#notes"
     ? preloadPosts()
     : document
@@ -203,26 +206,25 @@
   // ::: "Back to top" button
   const [toTop, btn, em] = create("a", "button", "em");
   toTop.id = "to-top";
-  toTop.classList.add(transparent);
+  toTop.classList.add(classes.transparent);
   toTop.setAttribute("href", "#top");
   toTop.setAttribute("aria-label", labels.toTop);
   toTop.setAttribute("title", labels.toTop);
-  em.className = "icons icon-arrow-up";
-  btn.classList.add(undisplayed);
+  em.classList.add("icons", "icon-arrow-up");
+  btn.classList.add(classes.undisplayed);
   btn.innerHTML = labels.toTop;
   [em, btn].forEach((e) => toTop.appendChild(e));
   document.body.appendChild(toTop);
 
-  const stickyClass = "sticky";
   // ::: Document events
   document.onscroll = () => {
     // Stick header component to top
-    window.pageYOffset > 0 && header.classList.add(stickyClass);
-    window.pageYOffset < 10 && header.classList.remove(stickyClass);
+    window.pageYOffset > 0 && header.classList.add(classes.sticky);
+    window.pageYOffset < 10 && header.classList.remove(classes.sticky);
 
     // Show "Back to top" button
-    window.pageYOffset > 150 && toTop.classList.remove(transparent);
-    window.pageYOffset <= 160 && toTop.classList.add(transparent);
+    window.pageYOffset > 150 && toTop.classList.remove(classes.transparent);
+    window.pageYOffset <= 160 && toTop.classList.add(classes.transparent);
   };
   // Display entire screen only after all script is run.
   window.onload = () => (document.body.style.opacity = 1);
