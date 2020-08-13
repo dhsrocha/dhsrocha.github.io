@@ -155,15 +155,17 @@
     // Pagination
     const pagination = document.createElement("ul");
     pagination.classList.add("horizontal");
-    [...Array(pages.length).keys()].map((i) => {
-      const [li, label] = create("li", "label");
+    const pagedIndexes = [...Array(pages.length).keys()].map((i) => {
+      const [li, label, span] = create("li", "label", "span");
       label.setAttribute("for", pageName + i);
-      label.innerHTML = i + 1;
+      span.innerHTML = i + 1;
+      label.appendChild(span);
       li.appendChild(label);
       pagination.appendChild(li);
       return li;
     });
     // Appending elements
+    highlight(pagedIndexes, "li", (e) => e.id === pageName + 0);
     pages.forEach((e) => articles.appendChild(e));
     articles.appendChild(pagination);
     // Display after finished loading.
