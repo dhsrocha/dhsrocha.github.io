@@ -317,10 +317,12 @@
   }
   #articles .horizontal {
     justify-content: center;
+    flex-flow: row wrap;
+    gap: 3vh 5vw;
   }
   #articles .horizontal * {
-    padding: 0.5em;
     font-size: 1.25em;
+    line-height: 0.5em;
     font-weight: 700;
   }
   #articles section {
