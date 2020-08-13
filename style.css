@@ -46,13 +46,13 @@
   html {
     box-sizing: border-box;
     scroll-behavior: smooth;
-    background-color: var(--color-secondary-tint-1);
   }
   body {
     display: flex;
     flex-direction: column;
 
     padding: 2.5%;
+    background-color: var(--color-secondary-tint-1);
   }
   p {
     text-align: justify;
