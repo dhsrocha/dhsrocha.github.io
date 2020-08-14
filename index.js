@@ -13,7 +13,7 @@
             case "installed":
               if (navigator.serviceWorker.controller)
                 console.log("New or updated content is available.");
-              else throw new Error("Content is now available offline!");
+              else console.info("Content is now available offline!");
               break;
             case "redundant":
               const msg = "The installing service worker became redundant.";
